@@ -1,0 +1,11 @@
+#NPM
+npm
+npm-debug.log
+node_modules/
+
+##
+.DS_Store
+
+#Compilations
+build/
+dist/

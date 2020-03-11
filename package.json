@@ -1,0 +1,35 @@
+{
+  "name": "app-preview-info-carousel",
+  "version": "1.0.0",
+  "description": "package.json for the app preview, description, and image carousel",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FEC-Group-Link/app-preview-info-carousel.git"
+  },
+  "keywords": [
+    "Front-end",
+    "image",
+    "carousel",
+    "mock",
+    "design",
+    "fullstack",
+    "app"
+  ],
+  "author": "Mason Borchard",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FEC-Group-Link/app-preview-info-carousel/issues"
+  },
+  "homepage": "https://github.com/FEC-Group-Link/app-preview-info-carousel#readme",
+  "dependencies": {
+    "node": "^13.10.1"
+  },
+
+"devDependencies": {
+  "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
+  }
+}
