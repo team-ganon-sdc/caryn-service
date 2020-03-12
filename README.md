@@ -1,6 +1,6 @@
 # app-preview-info-carousel
 
-> Project description
+> This module includes the image carousel including various views of each app as well as the app description paragraph(s)
 
 ## Related Projects
 

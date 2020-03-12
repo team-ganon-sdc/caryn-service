@@ -4,21 +4,16 @@
   "description": "package.json for the app preview, description, and image carousel",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon server/index.js",
+    "build": "./node_modules/.bin/webpack --mode production",
+    "dev-react": "webpack -d --watch",
+    "seed-database": "node seed.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/FEC-Group-Link/app-preview-info-carousel.git"
   },
-  "keywords": [
-    "Front-end",
-    "image",
-    "carousel",
-    "mock",
-    "design",
-    "fullstack",
-    "app"
-  ],
+  "keywords": [],
   "author": "Mason Borchard",
   "license": "ISC",
   "bugs": {
@@ -26,10 +21,25 @@
   },
   "homepage": "https://github.com/FEC-Group-Link/app-preview-info-carousel#readme",
   "dependencies": {
-    "node": "^13.10.1"
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.6",
+    "body-parser": "^1.19.0",
+    "database": "0.0.2",
+    "express": "^4.17.1",
+    "mongo-seeding": "^3.4.0",
+    "mongoose": "^5.9.4",
+    "mongoose-seed": "^0.6.0",
+    "node": "^13.10.1",
+    "nodemon": "^2.0.2",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "seed": "^0.4.4"
   },
-
-"devDependencies": {
-  "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
+  "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/preset-react": "^7.8.3",
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11"
   }
 }
