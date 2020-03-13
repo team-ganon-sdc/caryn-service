@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const db = require('./index.js');
 
 const AppImagesSchema = new Schema({
   "_id": { type: Number, unique: true },
@@ -8,11 +7,6 @@ const AppImagesSchema = new Schema({
   "images": [String]
 });
 
-const AppImagesSchemaFaker = {
-  "id": { type: Number, unique: true },
-  "app_description": String,
-  "images": [String]
-};
 
 
 var AppImagesModel = mongoose.model( 'Image', AppImagesSchema );
@@ -24,7 +18,7 @@ function findAll(callback) {
 
 // findOne will retrieve the appimage associated with the given id
 function findOne(id, callback) {
-  AppImagesModel.find({ id: id }, callback);
+  AppImagesModel.find({ _id: id }, callback);
 }
 
 // insertOne inserts one appImages schema into db

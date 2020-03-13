@@ -20,6 +20,5 @@ app.listen(PORT, () => {
 });
 
 app.get('/', (req, res) => {
-  res.send({working: true});
-  console.log('hello')
+  res.send({"what time is it?": "time 4 broccoli"});
 })
