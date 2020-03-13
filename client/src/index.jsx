@@ -7,7 +7,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentImage: console.log('state index.js')
+      currentImage: ''
     }
 
   }

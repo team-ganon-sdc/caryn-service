@@ -3,11 +3,16 @@ const Schema = mongoose.Schema;
 const db = require('./index.js');
 
 const AppImagesSchema = new Schema({
-  "id": { type: Number, unique: true },
+  "_id": { type: Number, unique: true },
   "app_description": String,
   "images": [String]
 });
 
+const AppImagesSchemaFaker = {
+  "id": { type: Number, unique: true },
+  "app_description": String,
+  "images": [String]
+};
 
 
 var AppImagesModel = mongoose.model( 'Image', AppImagesSchema );
