@@ -5,9 +5,12 @@ class Carousel extends React.Component {
 
   render () {
     return (
-      <div className="carousel"></div>
-      <button> the fjords eh?</button>
-    );
+      <div className="carousel">
+        <h1>
+        I'm a hhhhwhat??!
+      </h1>
+      </div>
+    )
   }
 }
 

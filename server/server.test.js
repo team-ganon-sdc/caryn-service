@@ -1,6 +1,6 @@
 const supertest = require('supertest');
 const app = require('./index.js');
-const request = supertest(app);
+const request = require(supertest)(app);
 
 describe('jest test client', () => {
 

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const AppImagesSchema = new Schema({
-  "_id": { type: Number, unique: true },
+  "id": { type: Number, unique: true },
   "app_description": String,
   "images": [String]
 });
@@ -18,7 +18,7 @@ function findAll(callback) {
 
 // findOne will retrieve the appimage associated with the given id
 function findOne(id, callback) {
-  AppImagesModel.find({ _id: id }, callback);
+  AppImagesModel.find({ id: id }, callback);
 }
 
 // insertOne inserts one appImages schema into db
@@ -30,3 +30,4 @@ exports.AppImagesModel = AppImagesModel;
 exports.findOne = findOne;
 exports.findAll = findAll;
 exports.insertOne = insertOne;
+module.exports = {AppImagesModel, AppImagesSchema, findOne, findAll, insertOne}

@@ -8,7 +8,7 @@ const ImageSlide = ({ url }) => {
   };
 
   return (
-    <div className="image-slide" style={styles}></div>
+    <div className="image-slide" style={styles}> </div>
   );
 }
 

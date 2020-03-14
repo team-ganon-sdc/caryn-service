@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ImageSlide from './components/ImageSlide.jsx';
 import Carousel from './components/Carousel.jsx';
+console.log('My Express React Webpack Babel Setup');
 
 class App extends React.Component {
   constructor(props) {
@@ -10,6 +11,16 @@ class App extends React.Component {
       currentImage: ''
     }
 
+  }
+  render() {
+    return (
+      <div>
+      <h1>
+        your a hairy, wizard
+      </h1>
+
+      </div>
+    )
   }
 
 }

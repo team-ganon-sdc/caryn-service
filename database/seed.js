@@ -1,7 +1,7 @@
 var data = require('./seed_data.js');
 const imagesData = require('./seed_data');
 var mongoose = require('mongoose');
-var Schemas = require('./database/models/Carousel.js');
+var Schemas = require('./models/Carousel.js');
 
 mongoose.connect('mongodb://localhost/carousel');
 

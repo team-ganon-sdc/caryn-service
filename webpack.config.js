@@ -1,7 +1,7 @@
 const path = require('path');
 const SRC_DIR = path.join(__dirname, './client/src');
-const BUILD_DIR = path.resolve(__dirname, './public/build');
-var DIST_DIR = path.join(__dirname, './client/public/dist');
+// const BUILD_DIR = path.resolve(__dirname, './public/build');
+var DIST_DIR = path.join(__dirname, './client/dist');
 
 module.exports = {
   entry: `${SRC_DIR}/index.jsx`,
@@ -12,14 +12,16 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?/,
-        exclude: '/node_modules/',
+        test: /\.(js|jsx)$/,
         include: SRC_DIR,
-        loader: 'babel-loader',
-        options: {
-          presets: ['react', 'es2015']
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react']
         }
       }
+    }
     ]
   }
 };

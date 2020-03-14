@@ -3,9 +3,8 @@ npm
 npm-debug.log
 node_modules/
 
-##
+## MAC files ##
 .DS_Store
-notes.txt
 
 #Compilations
 build/
