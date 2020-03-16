@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`database tests will check the matchers and pass 1`] = `
+Object {
+  "app_description": Any<String>,
+  "id": Any<Number>,
+  "images": Any<Array>,
+}
+`;

@@ -3,9 +3,10 @@ npm
 npm-debug.log
 node_modules/
 
-##
+## MAC files ##
 .DS_Store
 
 #Compilations
 build/
 dist/
+

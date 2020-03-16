@@ -1,35 +1,51 @@
 {
   "name": "app-preview-info-carousel",
-  "version": "1.0.0",
-  "description": "package.json for the app preview, description, and image carousel",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "description": "> This module includes the image carousel including various views of each app as well as the app description paragraph(s)",
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": ">=6.13.0"
   },
+  "scripts": {
+    "start": "nodemon server/index.js",
+    "build": "webpack -d --watch",
+    "db:setup": "node database/seed.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "eslint": "^6.8.0",
+    "express": "^4.16.4",
+    "jest": "^25.1.0",
+    "mongodb": "^3.5.5",
+    "mongoose": "^5.9.4",
+    "node": "^13.10.1",
+    "nodemon": "^2.0.2",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "request": "^2.88.2",
+    "supertest": "^4.0.2",
+    "underscore": "^1.9.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "@babel/preset-react": "^7.8.3",
+    "babel-loader": "^8.0.6",
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git",
+    "webpack": "^4.28.3",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.14"
+  },
+  "version": "1.0.0",
+  "main": "webpack.config.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/FEC-Group-Link/app-preview-info-carousel.git"
   },
-  "keywords": [
-    "Front-end",
-    "image",
-    "carousel",
-    "mock",
-    "design",
-    "fullstack",
-    "app"
-  ],
-  "author": "Mason Borchard",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/FEC-Group-Link/app-preview-info-carousel/issues"
   },
-  "homepage": "https://github.com/FEC-Group-Link/app-preview-info-carousel#readme",
-  "dependencies": {
-    "node": "^13.10.1"
-  },
-
-"devDependencies": {
-  "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
-  }
+  "homepage": "https://github.com/FEC-Group-Link/app-preview-info-carousel#readme"
 }
