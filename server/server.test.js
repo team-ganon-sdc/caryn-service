@@ -16,7 +16,7 @@ describe('server tests', () => {
   test('responds to GET', done => {
     // Sends GET Request to /test endpoint
     request(server)
-   .get('/carousel')
+   .get('/carousel/:idnum')
    .then(response => {
      expect(response.statusCode).toBe(200);
      done();

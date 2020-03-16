@@ -1,56 +1,35 @@
 const express = require('express');
-const path = require('path');
-const app = express();
-const PORT = process.env.PORT || 3003;
 const bodyParser = require('body-parser');
-// const {AppImagesModel, AppImagesSchema, findOne, findAll, insertOne} = require('../database/models/Carousel.js');
-
+// var appRouter = require('./routers/routers.js');
 const mongoose = require('mongoose');
-const mongoDB = 'mongodb://localhost/carousel';
-var router = express.Router();
+// const path = require('path');
+const Carousel = require('../database/models/Carousel.js');
 
+const app = express();
+const PORT =  3003;
 
+// mongoose.connect('mongodb://localhost/carousel');
 
-// open the default mongo connection
-// mongoose.connect(mongoDB, function(err, success) {
-//   if (err) {
-//     // console.log(err, 'error connecting to mongoDB');
-//   } else {
-//     // console.log("connected to mongoDB");
-//   }
-// });
-
-
-// mongoose.connect(mongoDB, {useMongoClient: true}, function(err, success) {
-//   if (err) {
-
-//   }
-// }
-
-
-app.use(bodyParser.urlencoded({useNewUrlParser: true, extended: true }))
 
 app.use(bodyParser.json());
-
-
+app.use(bodyParser.urlencoded({extended: true }));
+app.use('apps/:Id', express.static(`${__dirname}/../client/dist`));
 app.use(express.static(__dirname + '/../client/dist'));
 
-app.get('/carousel', function(req, res) {
-  const clientPath = path.join(__dirname, '../public/index.html');
-  res.sendFile(clientPath);
+// app.use('/api/carousel', appRouter);
+
+app.get('api/apps/:id/images', (req, res) => {
+  // const idnum = res.body.idnum;
+  Carousel.find({id: req.params.id})
+  .then((results) => {
+    res.send(results);
+  })
 });
 
 
-// app.post('/carousel', (req, res) => {
-//   var images = req.body;
-//   console.log('!!!!!!!!req.body: ' + JSON.stringify(req.body));
-
-// })
-
-
-app.listen(PORT, () => {
+const expressServer = app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
 });
 
 
-module.exports = app;
+module.exports = expressServer;

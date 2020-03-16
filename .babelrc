@@ -1,1 +1,14 @@
-{  "presets": ["@babel/preset-env", "@babel/preset-react"] }
+// {"presets": ["@babel/preset-env", "@babel/preset-react"] }
+
+
+{
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    "@babel/plugin-proposal-class-properties"
+  ]
+}
+
+// {  "presets": ["@babel/preset-env", "@babel/preset-react", "@babel/core","@babel/cli", "@babel/helper-plugin-utils", "@babel/node", "@babel/plugin-proposal-class-properties", "@babel/register"] }

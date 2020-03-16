@@ -1,15 +1,15 @@
-import React from 'react';
+// import React from 'react';
 
-const ImageSlide = ({ url }) => {
-  const styles = {
-    backgroundImage: `url(${url})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center'
-  };
+// const ImageSlide = ({ url }) => {
+//   const styles = {
+//     backgroundImage: `url(${url})`,
+//     backgroundSize: 'cover',
+//     backgroundPosition: 'center'
+//   };
 
-  return (
-    <div className="image-slide" style={styles}> </div>
-  );
-}
+//   return (
+//     <div className="image-slide" style={styles}> </div>
+//   );
+// }
 
-export default ImageSlide;
+// export default ImageSlide;
