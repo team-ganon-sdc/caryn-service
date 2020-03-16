@@ -1,10 +1,10 @@
 const db = require('./index.js');
 var Carousel = require('./models/Carousel.js');
-
+var mongoose = require('mongoose');
 var data = require('./seed_data.js');
 const imagesData = require('./seed_data');
 
-
+mongoose.connect('mongodb://localhost/carousel');
 
 // findAll retrieves all appimages data
 function findAll(callback) {
@@ -23,7 +23,7 @@ function insertOne(schema, callback) {
 
 
 var seedDb = function (data) {
-  Carousel.Carousel.insertMany(data, (err, docs) => {
+  Carousel.insertMany(data, (err, docs) => {
     if (err) {
       console.error(err);
       return;
@@ -34,22 +34,4 @@ var seedDb = function (data) {
 
 
 seedDb(data);
-
-
-// , function(){
-
-//   // load mongood file
-//   seeder.loadModels([
-//     'database/models/schema.js'
-//   ])
-
-//   // clear specified collections
-//   seeder.clearModels(['Schema'], function(){
-//     seeder.populateModels(data, function() {
-//       seeder.disconnect();
-//     });
-//   });
-
-// });
-
 
