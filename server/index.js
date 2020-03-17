@@ -2,13 +2,13 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const path = require('path');
-const Carousel = require('../database/model.js');
+const Carousels = require('../database/model.js');
 const db = require('../database/index.js');
 const app = express();
 const PORT =  3003;
 const carouselRouter = require('./routers.js')
 
-mongoose.connect('mongodb://localhost/googleplay');
+// const mongoDB = 'mongodb://localhost/googleplay';
 // const mongoDB = 'mongodb://localhost/carousel';
 
 // mongoose.connect(mongoDB, {useUnifiedTopology: true, useNewUrlParser: true}, function(err, success) {
@@ -20,17 +20,16 @@ mongoose.connect('mongodb://localhost/googleplay');
 // });
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true }));
+app.use(bodyParser.urlencoded({extended: false}));
 // app.use('/carousels', express.static(`${__dirname}/../client/dist`));
 app.use(express.static(__dirname + '/../client/dist'));
-
 
 app.use('/carousels', carouselRouter);
 
 
 
-// app.get('/carousels/:id/images', (req, res) => {
-//   Carousel.find({id: 9})
+// app.get('/carousels', (req, res) => {
+//   Carousels.Carousels.findOne({id: 1})
 //   .then((data) => {
 //     console.log(`data sent!: ${data}`);
 //     res.send(data);

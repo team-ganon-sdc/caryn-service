@@ -4,7 +4,7 @@ import SingleSlide from './SingleSlide.jsx';
 
 const Slides = props => (
   <div style={{
-    height: '100px',
+    height: '250px',
     width: '1200px',
     margin: '0 auto',
     display: 'flex',

@@ -4,69 +4,79 @@ import Slides from './Slides.jsx';
 import seed_data from '../../../database/seed_data.js'
 // import Controls from './Controls.jsx';
 // import $ from 'jquery';
-// import '../..dist/styles/style.css';
+// import '../..dist/style.css';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      appId: 1,
-      images: seed_data[1].images,
-      imageInd: 0
+      images: []
     };
   }
 
   componentDidMount = () => {
-  const Id = window.location.pathname.split('/')[2];
-   axios.get(`/carousels/${Id}/images`)
-   .then(res => (
+    var id = 10;
+   axios.get(`/carousels/${id}`)
+   .then((data) => {
+     console.log(`data: ${JSON.stringify(data)}`)
+     console.log(`data length: ${data.length}`)
+     console.log(`data.images: ${data.data.images}`)
     this.setState({
-      images: res.data[0].images,
+      images: data.data.images
     })
+   })
+  .then( () => (
+    console.log('get req successful')
   ))
-  .catch(ere => console.log(err));
+  .catch(err => console.log(err));
   }
 
-  goToPrevSlide = () => {
-    if (this.state.imageInd !== 0) {
-      this.setState({
-        imageInd: this.state.imageInd - 1,
-      });
-    }
-  }
+  // goToPrevSlide = () => {
+  //   if (this.state.imageInd !== 0) {
+  //     this.setState({
+  //       imageInd: this.state.imageInd - 1,
+  //     });
+  //   }
+  // }
 
-  goToNextSlide = () => {
-    if (this.state.imageInd !== this.state.images.length - 1) {
-      this.setState({
-        imageInd: this.state.imageInd + 1,
-      });
-    }
-  }
+  // goToNextSlide = () => {
+  //   if (this.state.imageInd !== this.state.images.length - 1) {
+  //     this.setState({
+  //       imageInd: this.state.imageInd + 1,
+  //     });
+  //   }
+  // }
 
-  clickHandler = (e) => {
-    if (e.target.getAttribute('index') !== this.state.imageInd) {
-      this.setState({
-        imageInd: Number(e.target.getAttribute('index')),
-      });
-    }
-  };
+  // clickHandler = (e) => {
+  //   if (e.target.getAttribute('index') !== this.state.imageInd) {
+  //     this.setState({
+  //       imageInd: Number(e.target.getAttribute('index')),
+  //       controls: true
+  //     });
+  //   }
+  // };
 
-  closeModal = () => {
-    this.setState({ modal: false });
-  }
+  // closeControls = () => {
+  //   this.setState({ controls: false });
+  // }
 
   render() {
-
+    // const renderControls = this.state.controls ? <Controls goToNextSlide={this.goToNextSlide}
+    //   goToPrevSlide={this.goToPrevSlide}
+    //   closeControls={this.closeControls}
+    //   appId={this.state.appId}
+    //   images={this.state.images}
+    //   clickHandler={this.clickHandler} />
+    //    : <Slides images={this.state.images} clickHandler={this.clickHandler} />;
 
     return (
       <div>
-      <Slides images={this.state.images} clickHandler={this.clickHandler} />;
-
+      <Slides images={this.state.images} clickHandler={this.clickHandler} />
       </div>
     );
   }
 }
 
 export default App;
-// window.Images = App;
+

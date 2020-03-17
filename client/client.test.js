@@ -16,7 +16,7 @@ describe('Components should exist', () => {
   });
 
 
-  it('Component Slides should exist', () => {
+  it('Component Slides should exists', () => {
     const wrapper = shallow(<Slides/>);
     expect(wrapper.exists()).toBe(true);
   });

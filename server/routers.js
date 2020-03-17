@@ -13,13 +13,17 @@ var router = express.Router();
 
   router.route('/:id')
   .get(function (req, res) {
-    Carousels.findOne(1, (err, result) => {
+    Carousels.findOne(req.params.id, (err, result) => {
       if (err) {
         res.status(500).send('Internal server error');
         console.log('Internal server error', err)
         return;
       }
-      res.send(result);
+      console.log(`result ${result[0].images}`);
+      console.log('is array:', Array.isArray(result));
+      console.log('typeof result', typeof result)
+      console.log('length result', result.length)
+      res.json(result[0]);
       return;
     });
   });
