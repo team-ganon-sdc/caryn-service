@@ -3,8 +3,7 @@ var Carousel = require('./models/Carousel.js');
 var mongoose = require('mongoose');
 var data = require('./seed_data.js');
 const imagesData = require('./seed_data');
-
-mongoose.connect('mongodb://localhost/carousel');
+// mongoose.connect('mongodb://database/appsdb');
 
 // findAll retrieves all appimages data
 function findAll(callback) {

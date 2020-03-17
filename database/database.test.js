@@ -23,11 +23,6 @@ describe('database tests', () => {
 
 
 
-// const mongoose = require('mongoose');
-// const Schema = require('./models/Carousel.js');
-// // const supertest = require('supertest');
-
-
 
 // describe('mongoDB database', () => {
 

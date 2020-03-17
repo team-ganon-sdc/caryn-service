@@ -1,6 +1,7 @@
 // const supertest = require('supertest');
-// const express = require('express');
+const express = require('express');
 const server = require('./index.js');
+const axios = require('axios');
 // const app = express();
 const polyfill = require('babel-polyfill');
 const request = require('supertest');
@@ -15,8 +16,8 @@ describe('server tests', () => {
 
   test('responds to GET', done => {
     // Sends GET Request to /test endpoint
-    request(server)
-   .get('/carousel/:idnum')
+    return request(server)
+   .get('/carousels/:id')
    .then(response => {
      expect(response.statusCode).toBe(200);
      done();
@@ -28,11 +29,11 @@ describe('server tests', () => {
 
   test('should respond with correct values', () => {
     return request(server)
-      .get('/carousel/:images')
+      .get('/carousels/:id')
       .expect(200)
       .expect(res => {
         const data = res.body.data[0];
-
+        console.log(data);
         expect(data.id).toEqual(expect.any(Number));
         expect(data.id).toBeGreaterThanOrEqual(1);
         expect(data.id).toBeLessThanOrEqual(100);
