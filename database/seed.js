@@ -1,28 +1,13 @@
-const db = require('./index.js');
-var Carousel = require('./models/Carousel.js');
+// const db = require('./index.js');
+var model = require('./model.js');
 var mongoose = require('mongoose');
 var data = require('./seed_data.js');
 const imagesData = require('./seed_data');
-// mongoose.connect('mongodb://database/appsdb');
-
-// findAll retrieves all appimages data
-function findAll(callback) {
-  Carousel.find({}, callback);
-}
-
-// findOne will retrieve the appimage associated with the given id
-function findOne(id, callback) {
-  Carousel.find({ id: id }, callback);
-}
-
-// insertOne inserts one appImages schema into db
-function insertOne(schema, callback) {
-  Carousel.create(schema, callback);
-}
+mongoose.connect('mongodb://database/googleplay');
 
 // populate db
 var seedDb = function (data) {
-  Carousel.insertMany(data, (err, docs) => {
+  model.Carousels.insertMany(data, (err, docs) => {
     if (err) {
       console.log(`Error populating db ${err}`);
       return;
@@ -35,5 +20,5 @@ var seedDb = function (data) {
 seedDb(data);
 
 
-module.exports = seedScript;
+module.exports = seedDb;
 

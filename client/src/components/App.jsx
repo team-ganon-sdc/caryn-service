@@ -48,7 +48,6 @@ class App extends React.Component {
     if (e.target.getAttribute('index') !== this.state.imageInd) {
       this.setState({
         imageInd: Number(e.target.getAttribute('index')),
-        // modal: true,
       });
     }
   };
@@ -58,13 +57,7 @@ class App extends React.Component {
   }
 
   render() {
-    // const renderModal = this.state.modal ? <Modal goToNextSlide={this.goToNextSlide}
-    //   goToPrevSlide={this.goToPrevSlide}
-    //   closeModal={this.closeModal}
-    //   appId={this.state.appId}
-    //   images={this.state.images}
-    //   clickHandler={this.clickHandler} />
-    //    <Slides images={this.state.images} clickHandler={this.clickHandler} />;
+
 
     return (
       <div>

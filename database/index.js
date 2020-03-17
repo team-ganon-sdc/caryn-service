@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
 const db = require('../database');
-mongoose.connect('mongodb://localhost/carousel');
+mongoose.connect('mongodb://localhost/googleplay');
 
  module.exports = db;

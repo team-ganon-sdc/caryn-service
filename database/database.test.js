@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Carousel = require('./models/Carousel.js');
+const Carousel = require('./model.js');
 const data = require('./seed_data.js');
 const seedData = require('./seed_data');
 
