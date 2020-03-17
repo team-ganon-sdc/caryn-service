@@ -1,9 +1,7 @@
 const mongoose = require('mongoose');
-const dbURI = 'mongodb://localhost/carousels';
-mongoose.connect(dbURI, {
-  useNewUrlParser: true, useUnifiedTopology: true
-});
-const db = mongoose.connection;
+const db = require('../database');
+mongoose.connect('mongodb://localhost/carousel');
+
 
 // db.on('connected', function() {
 //   console.log('Mongoose default connect open to ' + dbURI);

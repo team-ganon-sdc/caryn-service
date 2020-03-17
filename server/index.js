@@ -1,6 +1,5 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-// var appRouter = require('./routers/routers.js');
 const mongoose = require('mongoose');
 const path = require('path');
 const Carousel = require('../database/models/Carousel.js');
@@ -9,19 +8,30 @@ const app = express();
 const PORT =  3003;
 
 // mongoose.connect('mongodb://localhost/carousels');
+const mongoDB = 'mongodb://localhost/carousel';
 
+mongoose.connect(mongoDB, {useUnifiedTopology: true, useNewUrlParser: true}, function(err, success) {
+  if (err) {
+    console.log(err, 'error connecting to mongoDB');
+  } else {
+    console.log("connected to mongoDB");
+  }
+});
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true }));
-app.use('/carousels/:id', express.static(`${__dirname}/../client/dist`));
+// app.use('/carousels', express.static(`${__dirname}/../client/dist`));
 app.use(express.static(__dirname + '/../client/dist'));
 
 
-app.get('/carousels/:id', (req, res) => {
-  Carousel.find({id: req.params.id})
+app.get('/carousels', (req, res) => {
+  console.log('req.body', req.body);
+  // const idNum = req.params.idNum;
+  Carousel.find({id: 9})
   .then((data) => {
+    console.log(`data sent!: ${data}`);
     res.send(data);
-    console.log(`data sent: ${data}`)
+
   })
 });
 

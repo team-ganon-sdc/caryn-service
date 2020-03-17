@@ -17,7 +17,7 @@ describe('server tests', () => {
   test('responds to GET', done => {
     // Sends GET Request to /test endpoint
     return request(server)
-   .get('/carousels/:id')
+   .get('/carousels')
    .then(response => {
      expect(response.statusCode).toBe(200);
      done();
@@ -29,7 +29,7 @@ describe('server tests', () => {
 
   test('should respond with correct values', () => {
     return request(server)
-      .get('/carousels/:id')
+      .get('/carousels')
       .expect(200)
       .expect(res => {
         const data = res.body.data[0];

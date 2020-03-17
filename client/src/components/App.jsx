@@ -2,30 +2,31 @@ import React from 'react';
 import axios from 'axios';
 import Slides from './Slides.jsx';
 import seed_data from '../../../database/seed_data.js'
-// import Modal from './Modal.jsx';
-// import '/../..dist/styles/styles.css';
+import Controls from './Controls.jsx';
+import $ from 'jquery';
+// import '../..dist/styles/style.css';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      appInd: seed_data[0].id,
-      images: seed_data[0].images,
-      imageInd: seed_data[0].images[1]
+      appId: 1,
+      images: [],
+      imageInd: 0
     };
   }
 
   componentDidMount = () => {
-    // const Id = window.location.pathname.split('/')[2];
-    axios.get(`/carousels/`)
-      .then()
-      .then(res => (
-        this.setState({
-          images: seed_data[appInd].images
-        })
-      ))
-      .catch(err => console.log(`error with get request ${err}`));
+    $.ajax({
+      type: 'GET',
+      url: 'http://localhost:3003/carousels'
+    })
+    .done(function(data){
+      console.log('GET req successful, got images', data);
+      this.setState({ images: data.images });
+    }.bind(this));
+
   }
 
   goToPrevSlide = () => {
@@ -61,7 +62,7 @@ class App extends React.Component {
     // const renderModal = this.state.modal ? <Modal goToNextSlide={this.goToNextSlide}
     //   goToPrevSlide={this.goToPrevSlide}
     //   closeModal={this.closeModal}
-    //   appInd={this.state.appInd}
+    //   appId={this.state.appId}
     //   images={this.state.images}
     //   clickHandler={this.clickHandler} />
       //  <Slides images={this.state.images} clickHandler={this.clickHandler} />;
