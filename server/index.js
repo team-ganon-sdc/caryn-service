@@ -25,12 +25,12 @@ app.use(express.static(__dirname + '/../client/dist'));
 
 
 app.get('/carousels', (req, res) => {
-  console.log('req.body', req.body);
-  // const idNum = req.params.idNum;
-  Carousel.find({id: 9})
+  Carousel.find({id: 2})
   .then((data) => {
     console.log(`data sent!: ${data}`);
     res.send(data);
+    console.log(typeof data);
+    console.log('images', data['images']);
 
   })
 });
