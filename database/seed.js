@@ -20,17 +20,20 @@ function insertOne(schema, callback) {
   Carousel.create(schema, callback);
 }
 
-
+// populate db
 var seedDb = function (data) {
   Carousel.insertMany(data, (err, docs) => {
     if (err) {
-      console.error(err);
+      console.log(`Error populating db ${err}`);
       return;
     }
-    console.log('Done');
+    console.log('Done populating db!');
   });
 };
 
 
 seedDb(data);
+
+
+module.exports = seedScript;
 

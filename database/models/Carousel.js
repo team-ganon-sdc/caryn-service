@@ -12,10 +12,4 @@ const carouselSchema = new mongoose.Schema({
 
 const Carousel = mongoose.model( 'Carousel', carouselSchema );
 
-
-
-// exports.Carousel = Carousel;
-// exports.findOne = findOne;
-// exports.findAll = findAll;
-// exports.insertOne = insertOne;
 module.exports = Carousel;
