@@ -3,18 +3,12 @@ import React from 'react';
 import SingleSlide from './SingleSlide.jsx';
 
 const Slides = props => (
-  <div style={{
-    height: '250px',
-    width: '1200px',
-    margin: '0 auto',
-    display: 'flex',
-    top: '350px',
-  }}>
+  <tr className="slideshow">
     {props.images.map((image, i) =>
-      <SingleSlide image={image} key={i} index={i}/>
+     <td> <SingleSlide image={image} key={i} index={i}/> </td>
     )
   }
-  </div>
+  </tr>
 );
 
 export default Slides;

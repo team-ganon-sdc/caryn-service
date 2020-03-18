@@ -4,13 +4,13 @@ import React from 'react';
 
 const SingleSlide = props => (
   <div style={{
-    width: '10%',
+    width: '80%',
   }}>
     <img src={props.image} style={{
       width: '100%',
       height: '100%',
       cursor: 'pointer',
-    }} index={props.index}/>
+    }} onClick={props.clickHandler} index={props.index} key={props.index}/>
   </div>
 );
 

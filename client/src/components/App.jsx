@@ -2,8 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Slides from './Slides.jsx';
 import seed_data from '../../../database/seed_data.js'
-// import Controls from './Controls.jsx';
-// import $ from 'jquery';
+import Controls from './Controls.jsx';
 // import '../..dist/style.css';
 
 class App extends React.Component {
@@ -11,12 +10,14 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      images: []
+      images: [],
+      currentSlide: 0,
+      controls: true
     };
   }
 
   componentDidMount = () => {
-    var id = 10;
+    var id = 1;
    axios.get(`/carousels/${id}`)
    .then((data) => {
      console.log(`data: ${JSON.stringify(data)}`)
@@ -40,6 +41,19 @@ class App extends React.Component {
   //   }
   // }
 
+  togglePrevious = () => {
+    console.log("toggleprevious click!");
+    var current = this.state.currentSlide;
+    var previous = current - 1;
+    if (previous < 0) {
+      previous = this.state.images.length - 1;
+    }
+    this.setState({
+      currentSlide: previous
+    })
+    console.log('currentSlide', this.state.currentSlide)
+  }
+
   // goToNextSlide = () => {
   //   if (this.state.imageInd !== this.state.images.length - 1) {
   //     this.setState({
@@ -48,32 +62,26 @@ class App extends React.Component {
   //   }
   // }
 
-  // clickHandler = (e) => {
-  //   if (e.target.getAttribute('index') !== this.state.imageInd) {
-  //     this.setState({
-  //       imageInd: Number(e.target.getAttribute('index')),
-  //       controls: true
-  //     });
-  //   }
-  // };
+  toggleNext = () => {
+    console.log("togglenext click!");
+    var current = this.state.currentSlide;
+    var next = current + 1;
+    if (next > this.state.images.length - 1) {
+      next = 0;
+    }
+    this.setState({
+      currentSlide: next
+    })
+    console.log('currentSlide', this.state.currentSlide)
+  }
 
-  // closeControls = () => {
-  //   this.setState({ controls: false });
-  // }
 
   render() {
-    // const renderControls = this.state.controls ? <Controls goToNextSlide={this.goToNextSlide}
-    //   goToPrevSlide={this.goToPrevSlide}
-    //   closeControls={this.closeControls}
-    //   appId={this.state.appId}
-    //   images={this.state.images}
-    //   clickHandler={this.clickHandler} />
-    //    : <Slides images={this.state.images} clickHandler={this.clickHandler} />;
-
     return (
-      <div>
-      <Slides images={this.state.images} clickHandler={this.clickHandler} />
-      </div>
+      <Controls toggleNext={this.toggleNext}
+      togglePrevious={this.togglePrevious}
+      currentSlide={this.state.currentSlide}
+      images={this.state.images} />
     );
   }
 }
