@@ -11,8 +11,7 @@ class App extends React.Component {
 
     this.state = {
       images: [],
-      currentSlide: 0,
-      controls: true
+      currentSlide: 0
     };
   }
 
@@ -78,13 +77,26 @@ class App extends React.Component {
 
   render() {
     return (
-      <Controls toggleNext={this.toggleNext}
-      togglePrevious={this.togglePrevious}
-      currentSlide={this.state.currentSlide}
-      images={this.state.images} />
+      <div>
+        <Controls toggleNext={this.toggleNext}
+togglePrevious={this.togglePrevious}
+currentSlide={this.state.currentSlide}
+images={this.state.images} />
+<Slides images={this.state.images} />
+      </div>
     );
   }
 }
 
 export default App;
+
+
+
+{/* <div className="slideshow">
+<Controls toggleNext={this.toggleNext}
+togglePrevious={this.togglePrevious}
+currentSlide={this.state.currentSlide}
+images={this.state.images} />
+</div> */}
+
 

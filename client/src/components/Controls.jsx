@@ -2,15 +2,25 @@ import React from 'react';
 import SingleSlide from './SingleSlide.jsx';
 
 const Controls = props => (
-  <div className="slideshow">
-    <tr className="controls">
-    <td className="previous" onClick={props.togglePrevious}>&#10094;</td>
-    {props.images.map((image, i) =>
-     <td key={i}> <SingleSlide image={image} key={i} index={i}/> </td>
-    )}
-    <td className="next" onClick={props.toggleNext}>&#10095;</td>
-  </tr>
-  </div>
+<div>
+  <a className="left carousel-control" href="#myCarousel" data-slide="prev">
+  <span className="glyphicon glyphicon-chevron-left" onClick={props.togglePrevious}></span>
+  <span className="sr-only">Previous</span>
+    </a>
+
+    <a className="right carousel-control" href="#myCarousel" data-slide="next">
+    <span className="glyphicon glyphicon-chevron-right" onClick={props.toggleNext}></span>
+    <span className="sr-only">Next</span>
+    </a>
+</div>
+
 );
 
 export default Controls;
+
+
+
+
+// <div id="center"> {props.images.map((image, i) =>
+//   <div key={i}> <SingleSlide image={image} key={i} index={i}/> </div>
+//  )} </div>
