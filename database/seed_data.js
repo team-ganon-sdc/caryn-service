@@ -6,7 +6,7 @@ module.exports = [
      'https://i.picsum.photos/id/757/180/300.jpg',
      'https://i.picsum.photos/id/757/180/300.jpg'] },
 { id: 2,
-  app_description: 'Youre a hairy wizard! *flails pixelated arms to the left*, *flails pixelated arms to the right* *head remains intact but only from the nose up*. Im a hhhhwwwhat?!',
+  app_description: 'Youre a hairy wizard! *flails pixelated arms to the left*, *flails pixelated arms to the right* *head remains intact but only from the nose up*. Im a hhhhwwwhat?! Your honor, we have another cut and dry case of yet another baby genius who thinks he can swindle the american justice system. We must try this cunning infant as an adult or we may have a crime wave on our hands the likes of which we have never smelled before.',
   images:
    [ 'https://i.picsum.photos/id/757/180/300.jpg',
      'https://i.picsum.photos/id/757/180/300.jpg',

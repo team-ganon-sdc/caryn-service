@@ -8,8 +8,14 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      description: ''
+      description: '',
+      features: '',
+      additionalText: '',
+      additionalText2: '',
+      additionalText3: '',
+      readMore: 'READ MORE'
     };
+    this.toggleAdditionalText = this.toggleAdditionalText.bind(this);
 
   }
 
@@ -30,16 +36,44 @@ class App extends React.Component {
   .catch(err => console.log(err));
   }
 
+  toggleAdditionalText(){
+    if(this.state.additionalText === ''){
+      this.setState({
+        features: 'FEATURES',
+        additionalText:
+         '★ plz send new non silly brain plz! things are way too silly!',
+         additionalText2: '★ steady havin what I believe a psychiatrist would call a "mental breakdance"',
+         additionalText3: '★ when it comes to my mental brain, im just lookin 4 the right crank to pull (keep pulling the wrong cranks, turns out)',
+        readMore: 'COLLAPSE'
+      })
+    } else {
+      this.setState({
+        features: '',
+        additionalText: '',
+        additionalText2: '',
+        additionalText3: '',
+        readMore: 'READ MORE'
+      })
+    }
+
+  }
+
   render() {
     return (
       <div id="contents" style={{"padding":"60px 60px","maxWidth":700,"margin":"0 auto"}}>
       <ImageCarousel />
-      <p id="description-text" style={{
-        marginBottom: '2cm'
+      <p className="description-text" style={{
+        marginBottom: '0.8cm'
       }}>{this.state.description} </p>
+      <p className="description-text">{this.state.features}</p>
+      <p className="description-text">{this.state.additionalText}</p>
+      <p className="description-text">{this.state.additionalText2}</p>
+      <p className="description-text">{this.state.additionalText3}</p>
       <p id="readmore" style={{
         color: 'green'
-      }}><strong>READ MORE</strong></p>
+      }} onClick={this.toggleAdditionalText}><strong>{this.state.readMore}</strong></p>
+
+
 
 
       </div>
