@@ -26,7 +26,7 @@ export default class ImageCarousel extends React.Component {
     } = this.state;
 
     return (
-      <div id="contents" style={{"padding":"60px 60px","maxWidth":700,"margin":"0 auto"}}>
+      <div id="contents" style={{"padding":"30px 30px","maxWidth":600,"margin":"0 auto"}}>
         <ItemsCarousel
     placeholderItem={<div style={{ height: 200, background: 'url(https://i.picsum.photos/id/737/180/300.jpg)' }} />}
     enablePlaceholder={true}
@@ -34,9 +34,9 @@ export default class ImageCarousel extends React.Component {
     infiniteLoop={false}
     gutter={12}
     activePosition={'center'}
-    chevronWidth={80}
+    chevronWidth={70}
     disableSwipe={false}
-    alwaysShowChevrons={true}
+    alwaysShowChevrons={false}
     numberOfCards={2}
     slidesToScroll={2}
     outsideChevron={true}
@@ -44,8 +44,8 @@ export default class ImageCarousel extends React.Component {
     firstAndLastGutter={true}
     activeItemIndex={this.state.activeItemIndex}
     requestToChangeActive={value => this.setState({ activeItemIndex: value })}
-    rightChevron={'>'}
-    leftChevron={'<'}
+    rightChevron={<a className="next">&#10095;</a>}
+    leftChevron={<a className="prev">&#10094;</a>}
   >
     {Array.from(new Array(10)).map((_, i) =>
       <div
