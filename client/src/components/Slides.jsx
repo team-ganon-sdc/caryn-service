@@ -14,34 +14,24 @@ import SingleSlide from './SingleSlide.jsx';
 // export default Slides;
 
 const Slides = props => (
-  <div className="carousel-inner">
-    {props.images.map((image, i) => {
-      const isCurrent = i === props.currentSlide ?
+<div className="carousel-inner" role="listbox">
       <div className="item active">
-     <span > <SingleSlide image={image} key={i} index={i}/> </span>
-     </div> :
-     <div className="item">
-     <span > <SingleSlide image={image} key={i} index={i}/> </span>
-     </div>
-    })
-  }
+        <img src={props.images[0]} alt="" width="180" height="300"/>
+      </div>
+
+      <div className="item">
+        <img src={props.images[1]} alt="" width="180" height="300"/>
+      </div>
+
+      <div className="item">
+        <img src={props.images[2]} alt="" width="180" height="300"/>
+      </div>
+
+      <div className="item">
+        <img src={props.images[0]} alt="" width="180" height="300"/>
+      </div>
   </div>
 );
 
 export default Slides;
 
-
-{/* <div className="slideshow" style={{
-  margin: '1cm'
-}}>
-  {props.images.map((image, i) => {
-     i === 0 ?
-    <div className="item active">
-   <span key={i}> <SingleSlide image={image} key={i} index={i}/> </span>
-   </div> :
-   <div className="item">
-   <span key={i}> <SingleSlide image={image} key={i} index={i}/> </span>
-   </div>
-  })
-}
-</div> */}
