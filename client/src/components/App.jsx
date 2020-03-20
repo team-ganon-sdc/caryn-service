@@ -65,15 +65,13 @@ class App extends React.Component {
 
   render() {
     return (
-      <div id="contents" style={{"padding":"60px 60px","maxWidth":700,"margin":"0 auto"}}>
+      <div className="contents">
       <ImageCarousel />
-      <p className="description-text" style={{
-        marginBottom: '0.8cm'
-      }}>{this.state.description} </p>
-      <p className="description-text">{this.state.features}</p>
-      <p className="description-text">{this.state.additionalText1}</p>
-      <p className="description-text">{this.state.additionalText2}</p>
-      <p className="description-text">{this.state.additionalText3}</p>
+      <p className="description-text">{this.state.description} </p>
+      <p className="description-text" id="feature">{this.state.features}</p>
+      <p className="description-text" id="addText1">{this.state.additionalText1}</p>
+      <p className="description-text" id="addText2">{this.state.additionalText2}</p>
+      <p className="description-text" id="addText3">{this.state.additionalText3}</p>
       <p id="readmore" style={{
         color: 'green'
       }} onClick={this.toggleAdditionalText}><strong>{this.state.readMore}</strong></p>

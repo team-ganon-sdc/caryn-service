@@ -12,7 +12,7 @@ export default class ImageCarousel extends React.Component {
 
     setTimeout(() => {
       this.setState({
-        children: ['https://i.picsum.photos/id/737/180/300.jpg', 'https://i.picsum.photos/id/737/180/300.jpg', 'https://i.picsum.photos/id/737/180/300.jpg', 'https://i.picsum.photos/id/737/180/300.jpg', 'https://i.picsum.photos/id/737/180/300.jpg', 'https://i.picsum.photos/id/757/180/300.jpg'],
+        children: ['https://picsum.photos/seed/picsum/200/300', 'https://i.picsum.photos/id/737/180/300.jpg', 'https://i.picsum.photos/id/737/180/300.jpg', 'https://i.picsum.photos/id/737/180/300.jpg', 'https://i.picsum.photos/id/737/180/300.jpg', 'https://i.picsum.photos/id/737/180/300.jpg', 'https://i.picsum.photos/id/757/180/300.jpg'],
       })
     }, 100);
   }
@@ -26,19 +26,19 @@ export default class ImageCarousel extends React.Component {
     } = this.state;
 
     return (
-      <div id="contents" style={{"padding":"30px 30px","maxWidth":600,"margin":"0 auto"}}>
+      <div className="contents">
         <ItemsCarousel
-    placeholderItem={<div style={{ height: 200, background: 'url(https://i.picsum.photos/id/737/180/300.jpg)' }} />}
+    placeholderItem={<div style={{ height: 200, background: 'url(https://picsum.photos/seed/picsum/200/300)' }} />}
     enablePlaceholder={true}
     numberOfPlaceholderItems={3}
     infiniteLoop={false}
-    gutter={12}
+    gutter={5}
     activePosition={'center'}
     chevronWidth={70}
     disableSwipe={false}
     alwaysShowChevrons={false}
     numberOfCards={2}
-    slidesToScroll={2}
+    slidesToScroll={2.5}
     outsideChevron={true}
     showSlither={true}
     firstAndLastGutter={true}
@@ -51,8 +51,8 @@ export default class ImageCarousel extends React.Component {
       <div
         key={i}
         style={{
-          height: 200,
-          background: `url(https://i.picsum.photos/id/44${i}/180/300.jpg)` || `url(https://i.picsum.photos/id/63${i}/180/300.jpg)`
+          height: 300,
+          background: `url(https://i.picsum.photos/id/44${i}/400/300.jpg)` || `url(https://i.picsum.photos/id/63${i}/180/300.jpg)`
         }}
       />
     )}
