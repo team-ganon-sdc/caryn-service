@@ -10,7 +10,8 @@ class App extends React.Component {
     this.state = {
       description: '',
       features: '',
-      additionalText: '',
+      lines: '',
+      additionalText1: '',
       additionalText2: '',
       additionalText3: '',
       readMore: 'READ MORE'
@@ -27,7 +28,12 @@ class App extends React.Component {
      console.log(`data length: ${data.length}`)
      console.log(`data.images: ${data.data.app_description}`)
     this.setState({
-      description: data.data.app_description
+      description: data.data.app_description,
+      features: '',
+      lines: (data.data.additional_text).split('\n'),
+      additionalText1: '',
+      additionalText2: '',
+      additionalText3: ''
     })
    })
   .then( () => (
@@ -37,19 +43,18 @@ class App extends React.Component {
   }
 
   toggleAdditionalText(){
-    if(this.state.additionalText === ''){
+    if(this.state.additionalText1 === ''){
       this.setState({
-        features: 'FEATURES',
-        additionalText:
-         '★ plz send new non silly brain plz! things are way too silly!',
-         additionalText2: '★ steady havin what I believe a psychiatrist would call a "mental breakdance"',
-         additionalText3: '★ when it comes to my mental brain, im just lookin 4 the right crank to pull (keep pulling the wrong cranks, turns out)',
+        features: this.state.lines[0],
+        additionalText1: this.state.lines[1],
+         additionalText2: this.state.lines[2],
+         additionalText3: this.state.lines[3],
         readMore: 'COLLAPSE'
       })
     } else {
       this.setState({
         features: '',
-        additionalText: '',
+        additionalText1: '',
         additionalText2: '',
         additionalText3: '',
         readMore: 'READ MORE'
@@ -66,7 +71,7 @@ class App extends React.Component {
         marginBottom: '0.8cm'
       }}>{this.state.description} </p>
       <p className="description-text">{this.state.features}</p>
-      <p className="description-text">{this.state.additionalText}</p>
+      <p className="description-text">{this.state.additionalText1}</p>
       <p className="description-text">{this.state.additionalText2}</p>
       <p className="description-text">{this.state.additionalText3}</p>
       <p id="readmore" style={{

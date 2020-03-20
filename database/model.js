@@ -4,6 +4,7 @@ const db = require('./index.js');
 const carouselSchema = new mongoose.Schema({
   id: { type: Number, unique: true },
   app_description: String,
+  additional_text: String,
   images: Array
 });
 
