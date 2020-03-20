@@ -1,18 +1,18 @@
+// const db = require('./index.js');
+var model = require('./model.js');
+var mongoose = require('mongoose');
 var data = require('./seed_data.js');
 const imagesData = require('./seed_data');
-var mongoose = require('mongoose');
-var Schemas = require('./models/Carousel.js');
+mongoose.connect('mongodb://database/googleplay');
 
-mongoose.connect('mongodb://localhost/carousel');
-
-
+// populate db
 var seedDb = function (data) {
-  Schemas.AppImagesModel.insertMany(data, (err, docs) => {
+  model.Carousels.insertMany(data, (err, docs) => {
     if (err) {
-      console.error(err);
+      console.log(`Error populating db ${err}`);
       return;
     }
-    console.log('Done');
+    console.log('Done populating db!');
   });
 };
 
@@ -20,20 +20,5 @@ var seedDb = function (data) {
 seedDb(data);
 
 
-// , function(){
-
-//   // load mongood file
-//   seeder.loadModels([
-//     'database/models/schema.js'
-//   ])
-
-//   // clear specified collections
-//   seeder.clearModels(['Schema'], function(){
-//     seeder.populateModels(data, function() {
-//       seeder.disconnect();
-//     });
-//   });
-
-// });
-
+module.exports = seedDb;
 

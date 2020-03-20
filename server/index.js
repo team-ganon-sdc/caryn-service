@@ -1,56 +1,46 @@
 const express = require('express');
-const path = require('path');
-const app = express();
-const PORT = process.env.PORT || 3003;
 const bodyParser = require('body-parser');
-// const {AppImagesModel, AppImagesSchema, findOne, findAll, insertOne} = require('../database/models/Carousel.js');
-
 const mongoose = require('mongoose');
-const mongoDB = 'mongodb://localhost/carousel';
-var router = express.Router();
+const path = require('path');
+const Carousels = require('../database/model.js');
+const db = require('../database/index.js');
+const app = express();
+const PORT =  3003;
+const carouselRouter = require('./routers.js')
 
+// const mongoDB = 'mongodb://localhost/googleplay';
+// const mongoDB = 'mongodb://localhost/carousel';
 
-
-// open the default mongo connection
-// mongoose.connect(mongoDB, function(err, success) {
+// mongoose.connect(mongoDB, {useUnifiedTopology: true, useNewUrlParser: true}, function(err, success) {
 //   if (err) {
-//     // console.log(err, 'error connecting to mongoDB');
+//     console.log(err, 'error connecting to mongoDB');
 //   } else {
-//     // console.log("connected to mongoDB");
+//     console.log("connected to mongoDB");
 //   }
 // });
 
-
-// mongoose.connect(mongoDB, {useMongoClient: true}, function(err, success) {
-//   if (err) {
-
-//   }
-// }
-
-
-app.use(bodyParser.urlencoded({useNewUrlParser: true, extended: true }))
-
 app.use(bodyParser.json());
-
-
+app.use(bodyParser.urlencoded({extended: false}));
+// app.use('/carousels', express.static(`${__dirname}/../client/dist`));
 app.use(express.static(__dirname + '/../client/dist'));
 
-app.get('/carousel', function(req, res) {
-  const clientPath = path.join(__dirname, '../public/index.html');
-  res.sendFile(clientPath);
-});
+app.use('/carousels', carouselRouter);
 
 
-// app.post('/carousel', (req, res) => {
-//   var images = req.body;
-//   console.log('!!!!!!!!req.body: ' + JSON.stringify(req.body));
 
-// })
+// app.get('/carousels', (req, res) => {
+//   Carousels.Carousels.findOne({id: 1})
+//   .then((data) => {
+//     console.log(`data sent!: ${data}`);
+//     res.send(data);
+//     console.log(typeof data);
+//     console.log('images', data['images']);
+
+//   })
+// });
 
 
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
 });
 
-
-module.exports = app;
