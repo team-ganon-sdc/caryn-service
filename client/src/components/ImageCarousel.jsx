@@ -26,7 +26,9 @@ export default class ImageCarousel extends React.Component {
     } = this.state;
 
     return (
-      <div className="contents">
+      <div className="contents" style={{
+        width: '650px'
+      }}>
         <ItemsCarousel
     placeholderItem={<div style={{ height: 200, background: 'url(https://picsum.photos/seed/picsum/200/300)' }} />}
     enablePlaceholder={true}
@@ -34,7 +36,7 @@ export default class ImageCarousel extends React.Component {
     infiniteLoop={false}
     gutter={5}
     activePosition={'center'}
-    chevronWidth={70}
+    chevronWidth={35}
     disableSwipe={false}
     alwaysShowChevrons={false}
     numberOfCards={2}
@@ -44,15 +46,15 @@ export default class ImageCarousel extends React.Component {
     firstAndLastGutter={true}
     activeItemIndex={this.state.activeItemIndex}
     requestToChangeActive={value => this.setState({ activeItemIndex: value })}
-    rightChevron={<a className="next">&#10095;</a>}
-    leftChevron={<a className="prev">&#10094;</a>}
+    rightChevron={<div className="chevron-arrow-right"></div>}
+    leftChevron={<div className="chevron-arrow-left"></div>}
   >
     {Array.from(new Array(10)).map((_, i) =>
       <div
         key={i}
         style={{
           height: 300,
-          background: `url(https://i.picsum.photos/id/44${i}/400/300.jpg)` || `url(https://i.picsum.photos/id/63${i}/180/300.jpg)`
+          background: `url(https://i.picsum.photos/id/44${i}/180/300.jpg)` || `url(https://i.picsum.photos/id/63${i}/180/300.jpg)`
         }}
       />
     )}

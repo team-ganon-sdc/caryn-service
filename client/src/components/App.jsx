@@ -65,8 +65,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="contents">
+      <div className="carouselContents">
       <ImageCarousel />
+      <div className="container">
       <p className="description-text">{this.state.description} </p>
       <p className="description-text" id="feature">{this.state.features}</p>
       <p className="description-text" id="addText1">{this.state.additionalText1}</p>
@@ -75,7 +76,7 @@ class App extends React.Component {
       <p id="readmore" style={{
         color: 'green'
       }} onClick={this.toggleAdditionalText}><strong>{this.state.readMore}</strong></p>
-
+      </div>
 
 
 
