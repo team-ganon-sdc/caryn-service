@@ -8,8 +8,15 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      description: ''
+      description: '',
+      features: '',
+      lines: '',
+      additionalText1: '',
+      additionalText2: '',
+      additionalText3: '',
+      readMore: 'READ MORE'
     };
+    this.toggleAdditionalText = this.toggleAdditionalText.bind(this);
 
   }
 
@@ -21,7 +28,12 @@ class App extends React.Component {
      console.log(`data length: ${data.length}`)
      console.log(`data.images: ${data.data.app_description}`)
     this.setState({
-      description: data.data.app_description
+      description: data.data.app_description,
+      features: '',
+      lines: (data.data.additional_text).split('\n'),
+      additionalText1: '',
+      additionalText2: '',
+      additionalText3: ''
     })
    })
   .then( () => (
@@ -30,16 +42,42 @@ class App extends React.Component {
   .catch(err => console.log(err));
   }
 
+  toggleAdditionalText(){
+    if(this.state.additionalText1 === ''){
+      this.setState({
+        features: this.state.lines[0],
+        additionalText1: this.state.lines[1],
+         additionalText2: this.state.lines[2],
+         additionalText3: this.state.lines[3],
+        readMore: 'COLLAPSE'
+      })
+    } else {
+      this.setState({
+        features: '',
+        additionalText1: '',
+        additionalText2: '',
+        additionalText3: '',
+        readMore: 'READ MORE'
+      })
+    }
+
+  }
+
   render() {
     return (
-      <div id="contents" style={{"padding":"60px 60px","maxWidth":700,"margin":"0 auto"}}>
+      <div className="carouselContents">
       <ImageCarousel />
-      <p id="description-text" style={{
-        marginBottom: '2cm'
-      }}>{this.state.description} </p>
+      <div className="container">
+      <p className="description-text">{this.state.description} </p>
+      <p className="description-text" id="feature">{this.state.features}</p>
+      <p className="description-text" id="addText1">{this.state.additionalText1}</p>
+      <p className="description-text" id="addText2">{this.state.additionalText2}</p>
+      <p className="description-text" id="addText3">{this.state.additionalText3}</p>
       <p id="readmore" style={{
         color: 'green'
-      }}><strong>READ MORE</strong></p>
+      }} onClick={this.toggleAdditionalText}><strong>{this.state.readMore}</strong></p>
+      </div>
+
 
 
       </div>

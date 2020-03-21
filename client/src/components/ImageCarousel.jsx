@@ -12,7 +12,7 @@ export default class ImageCarousel extends React.Component {
 
     setTimeout(() => {
       this.setState({
-        children: ['https://i.picsum.photos/id/737/180/300.jpg', 'https://i.picsum.photos/id/737/180/300.jpg', 'https://i.picsum.photos/id/737/180/300.jpg', 'https://i.picsum.photos/id/737/180/300.jpg', 'https://i.picsum.photos/id/737/180/300.jpg', 'https://i.picsum.photos/id/757/180/300.jpg'],
+        children: ['https://picsum.photos/seed/picsum/200/300', 'https://i.picsum.photos/id/737/180/300.jpg', 'https://i.picsum.photos/id/737/180/300.jpg', 'https://i.picsum.photos/id/737/180/300.jpg', 'https://i.picsum.photos/id/737/180/300.jpg', 'https://i.picsum.photos/id/737/180/300.jpg', 'https://i.picsum.photos/id/757/180/300.jpg'],
       })
     }, 100);
   }
@@ -26,32 +26,34 @@ export default class ImageCarousel extends React.Component {
     } = this.state;
 
     return (
-      <div id="contents" style={{"padding":"60px 60px","maxWidth":700,"margin":"0 auto"}}>
+      <div className="contents" style={{
+        width: '650px'
+      }}>
         <ItemsCarousel
-    placeholderItem={<div style={{ height: 200, background: 'url(https://i.picsum.photos/id/737/180/300.jpg)' }} />}
+    placeholderItem={<div style={{ height: 200, background: 'url(https://picsum.photos/seed/picsum/200/300)' }} />}
     enablePlaceholder={true}
     numberOfPlaceholderItems={3}
     infiniteLoop={false}
-    gutter={12}
+    gutter={5}
     activePosition={'center'}
-    chevronWidth={80}
+    chevronWidth={35}
     disableSwipe={false}
-    alwaysShowChevrons={true}
+    alwaysShowChevrons={false}
     numberOfCards={2}
-    slidesToScroll={2}
+    slidesToScroll={2.5}
     outsideChevron={true}
     showSlither={true}
     firstAndLastGutter={true}
     activeItemIndex={this.state.activeItemIndex}
     requestToChangeActive={value => this.setState({ activeItemIndex: value })}
-    rightChevron={'>'}
-    leftChevron={'<'}
+    rightChevron={<div className="chevron-arrow-right"></div>}
+    leftChevron={<div className="chevron-arrow-left"></div>}
   >
     {Array.from(new Array(10)).map((_, i) =>
       <div
         key={i}
         style={{
-          height: 200,
+          height: 300,
           background: `url(https://i.picsum.photos/id/44${i}/180/300.jpg)` || `url(https://i.picsum.photos/id/63${i}/180/300.jpg)`
         }}
       />

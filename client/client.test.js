@@ -1,17 +1,16 @@
 import React from 'react';
 import App from './src/components/App.jsx';
-import Slides from './src/components/Slides.jsx';
-import SingleSlide from './src/components/SingleSlide.jsx';
-import { shallow } from '../enzyme';
+import ImageCarousel from './src/components/ImageCarousel.jsx';
+import { shallow } from '../enzyme.config.js';
 
 describe('Components should exist', () => {
   it('Component App should exist', () => {
-    const wrapper = shallow(<App />);
+    const wrapper = shallow(<ImageCarousel />);
     expect(wrapper.exists()).toBe(true);
   });
 
   it('Component SingleSlide should exist', () => {
-    const wrapper = shallow(<SingleSlide/>);
+    const wrapper = shallow(<App/>);
     expect(wrapper.exists()).toBe(true);
   });
 
