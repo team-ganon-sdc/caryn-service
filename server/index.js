@@ -1,12 +1,38 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
 const path = require('path');
 const Carousels = require('../database/model.js');
+const bodyParser = require('body-parser');
 const db = require('../database/index.js');
 const app = express();
 const PORT =  3003;
-const carouselRouter = require('./routers.js')
+
+
+app.use(express.static(__dirname + '/../client/dist'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+
+app.get('/carousels/:appId', (req, res) => {
+  const appId = req.params.id;
+  Carousels.find({id: appId}, (err, results) => {
+    if (err) {
+      return console.log('error getting from db: ', err)
+    }
+    res.json(results)
+  })
+})
+  // app.get(function (req, res) {
+  //   Carousels.find(req.params.id, (err, result) => {
+  //     if (err) {
+  //       res.status(500).send('Internal server error');
+  //       console.log('Internal server error', err)
+
+  //     }
+  //     res.json(result[0]);
+  //     done();
+  //   });
+  // });
+
 
 // const mongoDB = 'mongodb://localhost/googleplay';
 // const mongoDB = 'mongodb://localhost/carousel';
@@ -19,28 +45,12 @@ const carouselRouter = require('./routers.js')
 //   }
 // });
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
-// app.use('/carousels', express.static(`${__dirname}/../client/dist`));
-app.use(express.static(__dirname + '/../client/dist'));
-
-app.use('/carousels', carouselRouter);
-
-
-
-// app.get('/carousels', (req, res) => {
-//   Carousels.Carousels.findOne({id: 1})
-//   .then((data) => {
-//     console.log(`data sent!: ${data}`);
-//     res.send(data);
-//     console.log(typeof data);
-//     console.log('images', data['images']);
-
-//   })
-// });
-
 
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
 });
+
+module.exports = app
+
+
 

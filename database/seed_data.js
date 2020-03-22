@@ -1,13 +1,13 @@
 module.exports = [
   { id: 1,
-  app_description: 'Your honor, we have another cut and dry case of yet another baby genius who thinks he can swindle the american justice system. We must try this cunning infant as an adult or we may have a crime wave on our hands the likes of which we have never smelled before.',
+  app_description: 'Youre a hairy wizard! *flails pixelated arms to the left*, *flails pixelated arms to the right* *head remains intact but only from the nose up*. Im a hhhhwwwhat?!\n Your honor, we have another cut and dry case of yet another baby genius who thinks he can swindle the american justice system. We must try this cunning infant as an adult or we may have a crime wave on our hands the likes of which we have never smelled before.',
   additional_text: 'FEATURES\n★ plz send new non silly brain plz! things are way too silly!\n★ steady havin what I believe a psychiatrist would call a "mental breakdance"\n★ when it comes to my mental brain, im just lookin 4 the right crank to pull (keep pulling the wrong cranks, turns out)' ,
 images:
-   [ 'https://i.picsum.photos/id/757/180/300.jpg',
-     'https://i.picsum.photos/id/757/180/300.jpg',
-     'https://i.picsum.photos/id/757/180/300.jpg'] },
+   [ 'https://i.picsum.photos/id/737/180/300.jpg',
+     'https://i.picsum.photos/id/747/180/300.jpg',
+     'https://i.picsum.photos/id/759/180/300.jpg'] },
 { id: 2,
-  app_description: 'Youre a hairy wizard! *flails pixelated arms to the left*, *flails pixelated arms to the right* *head remains intact but only from the nose up*. Im a hhhhwwwhat?! Your honor, we have another cut and dry case of yet another baby genius who thinks he can swindle the american justice system. We must try this cunning infant as an adult or we may have a crime wave on our hands the likes of which we have never smelled before.',
+  app_description: 'Youre a hairy wizard! *flails pixelated arms to the left*, *flails pixelated arms to the right* *head remains intact but only from the nose up*. Im a hhhhwwwhat?!\n Your honor, we have another cut and dry case of yet another baby genius who thinks he can swindle the american justice system. We must try this cunning infant as an adult or we may have a crime wave on our hands the likes of which we have never smelled before.',
   additional_text: 'FEATURES\n★ plz send new non silly brain plz! things are way too silly!\n★ steady havin what I believe a psychiatrist would call a "mental breakdance"\n★ when it comes to my mental brain, im just lookin 4 the right crank to pull (keep pulling the wrong cranks, turns out)' ,
 images:
    [ 'https://i.picsum.photos/id/757/180/300.jpg',

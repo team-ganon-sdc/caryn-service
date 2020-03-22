@@ -1,12 +1,9 @@
 module.exports = {
   testEnvironment: 'node',
-  coverageReporters: ['json', 'html']
+  coverageReporters: ['json', 'html'],
   clearMocks: true,
-  testURL: 'http://localhost',
+  testURL: 'http://http://127.0.0.1:3003/',
   moduleFileExtensions: ['js', 'json', 'jsx'],
   setupFiles: ['<rootDir>/enzyme.config.js'],
   testPathIgnorePatterns: ['\\\\node_modules\\\\']
 };
-
-
-"jest": {     "collectCoverage": true,     "coverageReporters": ["json", "html"],     "testEnvironment": "node",     "coveragePathIgnorePatterns": [       "/node_modules/",       "<rootDir>/client/dist/"     ]   }

@@ -21,12 +21,12 @@ class App extends React.Component {
   }
 
   componentDidMount = () => {
-    var id = 2;
-   axios.get(`/carousels/${id}`)
+    var appId = 2;
+   axios.get(`/carousels/${appId}`)
    .then((data) => {
      console.log(`data: ${JSON.stringify(data)}`)
      console.log(`data length: ${data.length}`)
-     console.log(`data.images: ${data.data.app_description}`)
+     console.log(`data.app_description: ${data.data.app_description}`)
     this.setState({
       description: data.data.app_description,
       features: '',
