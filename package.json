@@ -66,5 +66,9 @@
   "bugs": {
     "url": "https://github.com/FEC-Group-Link/app-preview-info-carousel/issues"
   },
-  "homepage": "https://github.com/FEC-Group-Link/app-preview-info-carousel#readme"
+
+  "homepage": "https://github.com/FEC-Group-Link/app-preview-info-carousel#readme",
+  "jest": { "collectCoverage": true, "coverageDirectory": "../coverage", "testPathIgnorePatterns": [ "/node_modules/", "<rootDir>/client/dist/" ], "coverageReporters" : ["json", "html"], "testEnvironment": "node","verbose": true, "snapshotSerializers": [
+    "enzyme-to-json/serializer"
+  ] }
 }

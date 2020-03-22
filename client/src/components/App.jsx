@@ -26,11 +26,11 @@ class App extends React.Component {
    .then((data) => {
      console.log(`data: ${JSON.stringify(data)}`)
      console.log(`data length: ${data.length}`)
-     console.log(`data.app_description: ${data.data.app_description}`)
+     console.log(`data.app_description: ${data.data[0].app_description}`)
     this.setState({
-      description: data.data.app_description,
+      description: data.data[0].app_description,
       features: '',
-      lines: (data.data.additional_text).split('\n'),
+      lines: (data.data[0].additional_text).split('\n'),
       additionalText1: '',
       additionalText2: '',
       additionalText3: ''
