@@ -1,14 +1,14 @@
 import React from 'react';
 import App from '../client/src/components/App.jsx';
-import ImageCarousel from '../client/src/components/ImageCarousel.jsx';
-// import { shallow } from '../enzyme.config.js';
+import ItemsCarousel from '../client/src/components/ImageCarousel.jsx';
+import Adapter from 'enzyme-adapter-react-16';
 
 import { shallow, mount, render } from 'enzyme';
 
 describe('Components should exist', () => {
 
   it('Component Image carousel should exist', () => {
-    const wrapper = shallow(<ImageCarousel />);
+    const wrapper = shallow(<ItemsCarousel />);
     expect(wrapper.exists()).toBe(true);
     // expect(wrapper.find(ImageCarousel).length).toEqual(1);
   });
@@ -20,7 +20,25 @@ describe('Components should exist', () => {
   });
 
 
+
+
+  // test('should display first photo in list when <ItemsCarousel /> is rendered', () => {
+  //   const ind = 5;
+  //   const photoDisplay = photoCarousel().find('.carousel-img');
+
+  //   expect(photoDisplay.find('img').prop('src')).toBe(images[0].photo_url);
+  //   expect(photoCarousel().state('index')).toBe(0);
+  // });
+
+
 });
+
+
+
+
+
+
+
 
 
     //     describe('click left chevron', () => {

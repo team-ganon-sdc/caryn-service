@@ -112,7 +112,7 @@ class ItemsCarouselBase extends React.Component {
           ref={measureRef}
           style={{
             transform: `translateX(${actualTranslateX * -1}px)`,
-
+          }}
           className={classes.itemsInnerWrapper}
         >
           {items.map((child, index) => (

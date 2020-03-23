@@ -36,20 +36,20 @@ describe('server tests', () => {
           })
       });
 
-      test('should respond with correct values', () => {
+      test('should respond with correct values', (done) => {
         request(app)
         .get('/carousels/2')
           .then(res => {
-            const item = res.body.results;
+            const item = res.body[0];
             expect(item.id).toEqual(expect.any(Number));
             expect(item.app_description).toEqual(expect.any(String));
             expect(item.additional_text).toEqual(expect.any(String));
             expect(item.images).toEqual(expect.any(Array));
-            done();
+            done()
           });
       });
 
-      test('should respond with a 404 for invalid id', () => {
+      test('should respond with a 404 for invalid id', (done) => {
         request(app)
         .get('/mctallica')
         .then(res => {

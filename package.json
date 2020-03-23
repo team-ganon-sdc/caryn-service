@@ -68,7 +68,22 @@
   },
 
   "homepage": "https://github.com/FEC-Group-Link/app-preview-info-carousel#readme",
-  "jest": { "collectCoverage": true, "coverageDirectory": "../coverage", "testPathIgnorePatterns": [ "/node_modules/", "<rootDir>/client/dist/" ], "coverageReporters" : ["json", "html"], "testEnvironment": "node","verbose": true, "snapshotSerializers": [
-    "enzyme-to-json/serializer"
-  ] }
+  "jest": {
+    "collectCoverage": true,
+    "coverageReporters": [
+      "json",
+      "html"
+    ],
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "<rootDir>/client/dist/"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "setupFiles": [
+      "<rootDir>/enzyme.config.js"
+    ]
+  }
 }
