@@ -9,33 +9,41 @@ export default class ImageCarousel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: [],
+      children: [],
       activeItemIndex: 0
 
     }
 
-    this.changeActiveItem = this.changeActiveItem.bind(this)
+    // this.changeActiveItem = this.changeActiveItem.bind(this);
   }
 
+  componentWillMount(){}
+  componentDidMount(){}
+  componentWillUnmount(){}
 
-componentDidMount () {
+  componentWillReceiveProps(){}
+  shouldComponentUpdate(){}
+  componentWillUpdate(){}
+
+
+componentDidUpdate () {
   var appId = 2
   axios.get(`/carousels/${appId}`).then((data) => {
-    const results = data.data[0].images
-    console.log('data: ', data.data[0].images)
+    this.setState({
+      children: data.data[0].images,
+      activeItemIndex: 0
+    })
+    console.log('data: ', data.data[0].images);
+
     }).catch(err => console.log(err));
 }
 
-  UNSAFE_componentWillMount() {
-
-      this.setState({
-        items: this.results,
-        activeItemIndex: 0
-      })
-
-
-
-}
+//   UNSAFE_componentWillMount() {
+//       this.setState({
+//         children: this.pictures,
+//         activeItemIndex: 0
+//       })
+// }
 
   changeActiveItem = (activeItemIndex) => this.setState({ activeItemIndex });
 
@@ -45,7 +53,7 @@ componentDidMount () {
   render() {
     const {
       activeItemIndex,
-      items,
+      children,
     } = this.state;
 
     return (
@@ -53,7 +61,7 @@ componentDidMount () {
         width: '650px'
       }}>
         <ItemsCarousel
-    placeholderItem={<div style={{ height: 300, width: 180, background: 'url(https://picsum.photos/seed/picsum/180/300)' }} />}
+
     enablePlaceholder={false}
     numberOfPlaceholderItems={3}
     numberOfCars={3}
@@ -104,7 +112,7 @@ componentDidMount () {
 
 
 // import React from 'react';
-// import ImageCarousel from 'react-items-carousel';
+// import ImageCarousel from 'react-children-carousel';
 
 
 // export default class ImageCarousel extends React.Component {
