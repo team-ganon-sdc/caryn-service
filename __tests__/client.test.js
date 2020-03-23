@@ -7,10 +7,10 @@ import { shallow, mount, render } from 'enzyme';
 
 describe('Components should exist', () => {
 
-  it('Component Image carousel should exist', () => {
+  it('Component Items carousel should exist', () => {
     const wrapper = shallow(<ItemsCarousel />);
     expect(wrapper.exists()).toBe(true);
-    // expect(wrapper.find(ImageCarousel).length).toEqual(1);
+
   });
 
   it('Component App should exist', () => {
