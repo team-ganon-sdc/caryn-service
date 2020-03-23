@@ -4,10 +4,11 @@ import ImageCarousel from './ImageCarousel.jsx';
 
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
+      current: [],
       description: '',
       features: '',
       lines: '',
@@ -28,6 +29,7 @@ class App extends React.Component {
      console.log(`data length: ${data.length}`)
      console.log(`data.app_description: ${data.data[0].app_description}`)
     this.setState({
+      current: data.data[0],
       description: data.data[0].app_description,
       features: '',
       lines: (data.data[0].additional_text).split('\n'),
@@ -37,7 +39,7 @@ class App extends React.Component {
     })
    })
   .then( () => (
-    console.log('get req successful')
+    console.log('get req successful', this.state.current)
   ))
   .catch(err => console.log(err));
   }

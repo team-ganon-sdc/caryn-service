@@ -10,9 +10,9 @@ images:
   app_description: 'Youre a hairy wizard! *flails pixelated arms to the left*, *flails pixelated arms to the right* *head remains intact but only from the nose up*. Im a hhhhwwwhat?!\n Your honor, we have another cut and dry case of yet another baby genius who thinks he can swindle the american justice system. We must try this cunning infant as an adult or we may have a crime wave on our hands the likes of which we have never smelled before.',
   additional_text: 'FEATURES\n★ plz send new non silly brain plz! things are way too silly!\n★ steady havin what I believe a psychiatrist would call a "mental breakdance"\n★ when it comes to my mental brain, im just lookin 4 the right crank to pull (keep pulling the wrong cranks, turns out)' ,
 images:
-   [ 'https://i.picsum.photos/id/757/180/300.jpg',
+   [ 'https://i.picsum.photos/id/747/180/300.jpg',
      'https://i.picsum.photos/id/757/180/300.jpg',
-     'https://i.picsum.photos/id/757/180/300.jpg'] },
+     'https://i.picsum.photos/id/767/180/300.jpg'] },
 { id: 3,
   app_description: 'The wolves stopped in their tracks, sizing up the mother and her cubs. It had been over a week since their last meal and they were getting desperate. The cubs would make a good meal, but there were high risks taking on the mother Grizzly. A decision had to be made and the wrong choice could signal the end of the pack.',
   additional_text: 'FEATURES\n★ plz send new non silly brain plz! things are way too silly!\n★ steady havin what I believe a psychiatrist would call a "mental breakdance"\n★ when it comes to my mental brain, im just lookin 4 the right crank to pull (keep pulling the wrong cranks, turns out)' ,

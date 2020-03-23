@@ -1,19 +1,46 @@
 import React from 'react';
 import ItemsCarousel from 'react-items-carousel';
+import axios from 'axios';
+import _ from 'underscore'
 
 
 export default class ImageCarousel extends React.Component {
 
-  UNSAFE_componentWillMount() {
-    this.setState({
-      items: ['https://picsum.photos/seed/picsum/180/300', 'https://picsum.photos/seed/picsum/180/300', 'https://picsum.photos/seed/picsum/180/300', 'https://picsum.photos/seed/picsum/180/300', 'https://picsum.photos/seed/picsum/180/300', 'https://picsum.photos/seed/picsum/180/300', 'https://picsum.photos/seed/picsum/180/300', 'https://picsum.photos/seed/picsum/180/300'],
-      activeItemIndex: 0,
-    });
+  constructor(props) {
+    super(props);
+    this.state = {
+      items: [],
+      activeItemIndex: 0
 
+    }
 
+    this.changeActiveItem = this.changeActiveItem.bind(this)
   }
 
+
+componentDidMount () {
+  var appId = 2
+  axios.get(`/carousels/${appId}`).then((data) => {
+    const results = data.data[0].images
+    console.log('data: ', data.data[0].images)
+    }).catch(err => console.log(err));
+}
+
+  UNSAFE_componentWillMount() {
+
+      this.setState({
+        items: this.results,
+        activeItemIndex: 0
+      })
+
+
+
+}
+
   changeActiveItem = (activeItemIndex) => this.setState({ activeItemIndex });
+
+  // createChildren = n => range(n).map(i => <div key={i} style={{ height: 200, background: '#333' }}>{i}</div>);
+
 
   render() {
     const {

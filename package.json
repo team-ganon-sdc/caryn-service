@@ -66,7 +66,6 @@
   "bugs": {
     "url": "https://github.com/FEC-Group-Link/app-preview-info-carousel/issues"
   },
-
   "homepage": "https://github.com/FEC-Group-Link/app-preview-info-carousel#readme",
   "jest": {
     "collectCoverage": true,
