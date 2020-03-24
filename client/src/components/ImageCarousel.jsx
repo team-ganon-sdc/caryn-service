@@ -1,7 +1,8 @@
 import React from 'react';
 import ItemsCarousel from 'react-items-carousel';
 import axios from 'axios';
-import _ from 'underscore'
+import _ from 'underscore';
+
 
 
 export default class ImageCarousel extends React.Component {
@@ -9,33 +10,38 @@ export default class ImageCarousel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      children: [],
+      items: [],
       activeItemIndex: 0
 
     }
 
-    // this.changeActiveItem = this.changeActiveItem.bind(this);
+    this.changeActiveItem = this.changeActiveItem.bind(this)
   }
 
-  componentWillMount(){}
-  componentDidMount(){}
-  componentWillUnmount(){}
 
-  componentWillReceiveProps(){}
-  shouldComponentUpdate(){}
-  componentWillUpdate(){}
-
-
-componentDidUpdate () {
+componentDidMount () {
   var appId = 2
   axios.get(`/carousels/${appId}`).then((data) => {
-    this.setState({
-      children: data.data[0].images,
-      activeItemIndex: 0
-    })
-    console.log('data: ', data.data[0].images);
-
+    const results = data.data[0].images
+    console.log('data: ', data.data[0].images)
     }).catch(err => console.log(err));
+}
+
+  UNSAFE_componentWillMount() {
+
+    var appId = 2
+    axios.get(`/carousels/${appId}`).then((data) => {
+      this.setState({
+        items: data.data[0].images,
+        activeItemIndex: 0
+      })
+      console.log('data: ', data.data[0].images)
+      }).catch(err => console.log(err));
+
+
+
+
+
 }
 
 //   UNSAFE_componentWillMount() {
@@ -81,16 +87,16 @@ componentDidUpdate () {
     rightChevron={<div className="chevron-arrow-right"></div>}
     leftChevron={<div className="chevron-arrow-left"></div>}
   >
-    {Array.from(new Array(15)).map((_, i) =>
-      <div className = 'carousel-img'
-        key={i}
-        style={{
-          height: 300,
-          width: 180,
-          background: `url(https://i.picsum.photos/id/44${Math.floor(Math.random() * 9)}/180/300.jpg)` || `url(https://i.picsum.photos/id/63${Math.floor(Math.random() * 9)}/180/300.jpg)`
-        }}
-      />
-    )}
+  {Array.from(new Array(8)).map((_, i) =>
+  <div className = 'carousel-img'
+    key={i}
+    style={{
+      height: 300,
+      width: 180,
+      background: `url(${this.state.items[i]})` || `url(https://i.picsum.photos/id/63${Math.floor(Math.random() * 9)}/180/300.jpg)`
+    }}
+  />
+)}
   </ItemsCarousel>
       </div>
     );
