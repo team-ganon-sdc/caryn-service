@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import ImageCarousel from './ImageCarousel.jsx';
-import Slides from './Slides.jsx';
+
 
 
 class App extends React.Component {
