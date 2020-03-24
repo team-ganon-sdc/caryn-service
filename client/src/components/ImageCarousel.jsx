@@ -20,7 +20,7 @@ export default class ImageCarousel extends React.Component {
 
 
 componentDidMount () {
-  var appId = 2
+  var appId = 1
   axios.get(`/carousels/${appId}`).then((data) => {
     const results = data.data[0].images
     console.log('data: ', data.data[0].images)
@@ -29,13 +29,13 @@ componentDidMount () {
 
   UNSAFE_componentWillMount() {
 
-    var appId = 2
+    var appId = 1
     axios.get(`/carousels/${appId}`).then((data) => {
       this.setState({
         items: data.data[0].images,
         activeItemIndex: 0
       })
-      console.log('data: ', data.data[0].images)
+      console.log('data: ', data.data[0].images.length)
       }).catch(err => console.log(err));
 
 }
@@ -59,15 +59,15 @@ componentDidMount () {
 
     enablePlaceholder={false}
     numberOfPlaceholderItems={3}
-    numberOfCars={3}
+    numberOfCars={3.5}
     infiniteLoop={false}
-    gutter={3}
+    gutter={1}
     activePosition={'center'}
     chevronWidth={35}
     disableSwipe={false}
     alwaysShowChevrons={false}
-    // numberOfCards={3}
-    slidesToScroll={3}
+    numberOfCards={3}
+    slidesToScroll={3.5}
     outsideChevron={true}
     showSlither={true}
     firstAndLastGutter={false}
@@ -76,7 +76,7 @@ componentDidMount () {
     rightChevron={<div className="chevron-arrow-right"></div>}
     leftChevron={<div className="chevron-arrow-left"></div>}
   >
-  {Array.from(new Array(8)).map((_, i) =>
+  {Array.from(new Array(14)).map((_, i) =>
   <div className = 'carousel-img'
     key={i}
     style={{

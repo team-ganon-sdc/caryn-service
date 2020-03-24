@@ -23,7 +23,7 @@ class App extends React.Component {
   }
 
   componentDidMount = () => {
-    var appId = 2;
+    var appId = 1;
    axios.get(`/carousels/${appId}`)
    .then((data) => {
      console.log(`data: ${JSON.stringify(data)}`)
