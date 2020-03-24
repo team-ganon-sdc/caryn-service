@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-const Carousel = require('./model.js');
-const data = require('./seed_data.js');
-const seedData = require('./seed_data');
+const Carousel = require('../database/model.js');
+const data = require('../database/seed_data.js');
+const seedData = require('../database/seed_data');
 
 describe('database tests', () => {
 
@@ -10,6 +10,7 @@ describe('database tests', () => {
     expect(seedData[0]).toMatchSnapshot({
       id: expect.any(Number),
       app_description: expect.any(String),
+      additional_text: expect.any(String),
       images: expect.any(Array)
     });
   });

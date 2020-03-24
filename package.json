@@ -42,6 +42,7 @@
     "css-loader": "^3.4.2",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-to-json": "^3.4.4",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git",
     "jest": "^25.1.0",
     "jquery": "^3.4.1",
@@ -65,5 +66,23 @@
   "bugs": {
     "url": "https://github.com/FEC-Group-Link/app-preview-info-carousel/issues"
   },
-  "homepage": "https://github.com/FEC-Group-Link/app-preview-info-carousel#readme"
+  "homepage": "https://github.com/FEC-Group-Link/app-preview-info-carousel#readme",
+  "jest": {
+    "collectCoverage": true,
+    "coverageReporters": [
+      "json",
+      "html"
+    ],
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "<rootDir>/client/dist/"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "setupFiles": [
+      "<rootDir>/enzyme.config.js"
+    ]
+  }
 }

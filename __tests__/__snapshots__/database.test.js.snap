@@ -2,6 +2,7 @@
 
 exports[`database tests it will check the matchers and pass 1`] = `
 Object {
+  "additional_text": Any<String>,
   "app_description": Any<String>,
   "id": Any<Number>,
   "images": Any<Array>,

@@ -36,4 +36,4 @@ exports.findOne = findOne;
 exports.findAll = findAll;
 exports.insertOne = insertOne;
 exports.Carousels = Carousels;
-
+module.exports = Carousels;

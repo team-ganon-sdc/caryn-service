@@ -3,11 +3,13 @@ import axios from 'axios';
 import ImageCarousel from './ImageCarousel.jsx';
 
 
+
 class App extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
+      current: [],
       description: '',
       features: '',
       lines: '',
@@ -21,23 +23,24 @@ class App extends React.Component {
   }
 
   componentDidMount = () => {
-    var id = 2;
-   axios.get(`/carousels/${id}`)
+    var appId = 2;
+   axios.get(`/carousels/${appId}`)
    .then((data) => {
      console.log(`data: ${JSON.stringify(data)}`)
      console.log(`data length: ${data.length}`)
-     console.log(`data.images: ${data.data.app_description}`)
+     console.log(`data.app_description: ${data.data[0].app_description}`)
     this.setState({
-      description: data.data.app_description,
+      current: data.data[0],
+      description: data.data[0].app_description,
       features: '',
-      lines: (data.data.additional_text).split('\n'),
+      lines: (data.data[0].additional_text).split('\n'),
       additionalText1: '',
       additionalText2: '',
       additionalText3: ''
     })
    })
   .then( () => (
-    console.log('get req successful')
+    console.log('get req successful', this.state.current)
   ))
   .catch(err => console.log(err));
   }
