@@ -7,8 +7,8 @@ import _ from 'underscore';
 
 export default class ImageCarousel extends React.Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       items: [],
       activeItemIndex: 0
@@ -19,17 +19,15 @@ export default class ImageCarousel extends React.Component {
   }
 
 
-componentDidMount () {
-  var appId = 1
-  axios.get(`http://localhost:3003/carousels/${appId}`).then((data) => {
-    const results = data.data[0].images;
-    }).catch(err => console.log(err));
-}
+// componentDidMount () {
+//   // var appId = 2
+//   // axios.get(`http://localhost:3003/carousels/99`).then((data) => {
+//   //   const results = data.data[0].images;
+//   //   }).catch(err => console.log(err));
+// }
 
   UNSAFE_componentWillMount() {
-
-    var appId = 1
-    axios.get(`/carousels/${appId}`).then((data) => {
+    axios.get(`http://localhost:3003/carousels/${this.props.id}`).then((data) => {
       this.setState({
         items: data.data[0].images,
         activeItemIndex: 0

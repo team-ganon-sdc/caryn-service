@@ -23,8 +23,7 @@ class App0 extends React.Component {
   }
 
   componentDidMount = () => {
-    var appId = 1;
-   axios.get(`http://localhost:3003/carousels/${appId}`)
+   axios.get(`http://localhost:3003/carousels/${this.props.id}`)
    .then((data) => {
     this.setState({
       current: data.data[0],
@@ -66,7 +65,7 @@ class App0 extends React.Component {
   render() {
     return (
       <div className="carouselContents">
-      <ImageCarousel />
+      <ImageCarousel id={this.props.id}/>
       <div className="container">
       <p className="description-text">{this.state.description} </p>
       <p className="description-text" id="feature">{this.state.features}</p>
