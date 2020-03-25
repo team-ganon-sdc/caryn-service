@@ -66,7 +66,7 @@ class App0 extends React.Component {
     return (
       <div className="carouselContents">
       <ImageCarousel id={this.props.id}/>
-      <div className="container">
+      <div className="container-carousel-service">
       <p className="description-text">{this.state.description} </p>
       <p className="description-text" id="feature">{this.state.features}</p>
       <p className="description-text" id="addText1">{this.state.additionalText1}</p>
