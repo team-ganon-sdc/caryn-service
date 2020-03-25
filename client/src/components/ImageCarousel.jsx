@@ -21,9 +21,8 @@ export default class ImageCarousel extends React.Component {
 
 componentDidMount () {
   var appId = 1
-  axios.get(`/carousels/${appId}`).then((data) => {
-    const results = data.data[0].images
-    console.log('data: ', data.data[0].images)
+  axios.get(`http://localhost:3003/carousels/${appId}`).then((data) => {
+    const results = data.data[0].images;
     }).catch(err => console.log(err));
 }
 
@@ -35,7 +34,6 @@ componentDidMount () {
         items: data.data[0].images,
         activeItemIndex: 0
       })
-      console.log('data: ', data.data[0].images.length)
       }).catch(err => console.log(err));
 
 }

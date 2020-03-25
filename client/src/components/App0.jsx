@@ -5,8 +5,8 @@ import ImageCarousel from './ImageCarousel.jsx';
 
 
 class App0 extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       current: [],
@@ -24,11 +24,8 @@ class App0 extends React.Component {
 
   componentDidMount = () => {
     var appId = 1;
-   axios.get(`/carousels/${appId}`)
+   axios.get(`http://localhost:3003/carousels/${appId}`)
    .then((data) => {
-     console.log(`data: ${JSON.stringify(data)}`)
-     console.log(`data length: ${data.length}`)
-     console.log(`data.app_description: ${data.data[0].app_description}`)
     this.setState({
       current: data.data[0],
       description: data.data[0].app_description,
