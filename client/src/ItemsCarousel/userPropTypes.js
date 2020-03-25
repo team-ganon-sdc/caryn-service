@@ -62,60 +62,37 @@ export default {
     'right',
   ]),
 
-  /**
-   * Right chevron element. If passed `requestToChangeActive` must be set.
-   */
+
   rightChevron: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.string,
   ]),
 
-  /**
-   * Left chevron element. If passed `requestToChangeActive` must be set.
-   */
+
   leftChevron: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.string,
   ]),
 
-  /**
-   * Chevron width.
-   */
   chevronWidth: PropTypes.number,
 
-  /**
-   * If true the chevron will be outside the carousel.
-   */
   outsideChevron: PropTypes.bool,
 
-  /**
-   * Whether or not to always show chevrons
-   */
+
   alwaysShowChevrons: PropTypes.bool,
 
-  /**
-   * Number of slides to scroll when clicked on right or left chevron.
-   */
+
   slidesToScroll: PropTypes.number,
 
-  /**
-   * Disabling swipe on touch devices
-   */
+
   disableSwipe: PropTypes.bool,
 
-  /**
-   * React motion configurations.
-   * [More about this here](https://github.com/chenglou/react-motion#--spring-val-number-config-springhelperconfig--opaqueconfig)
-   */
   springConfig: PropTypes.shape({
     stiffness: PropTypes.number,
     damping: PropTypes.number,
     precision: PropTypes.number,
   }),
 
-  /**
-   * Function to be used to watch carousel state
-   */
   onActiveStateChange: PropTypes.func,
 
   classes: PropTypes.shape({
@@ -127,13 +104,7 @@ export default {
     leftChevronWrapper: PropTypes.string,
   }),
 
-  /**
-   * Enables infinite loop
-   */
   infiniteLoop: PropTypes.bool,
 
-  /**
-   * Can be used change translateX on the spot
-   */
   calculateActualTranslateX: PropTypes.func,
 };

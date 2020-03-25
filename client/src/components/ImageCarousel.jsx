@@ -7,8 +7,8 @@ import _ from 'underscore';
 
 export default class ImageCarousel extends React.Component {
 
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       items: [],
       activeItemIndex: 0

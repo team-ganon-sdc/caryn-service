@@ -82,15 +82,7 @@ body {
   transform: rotate(-45deg);
 }
 
-/* Position the "next button" to the right */
 
-
-/* .next {
-  left: 43px;
-  border-radius: 3px 0 0 3px;
-} */
-
-/* On hover, add a black background color with a little bit see-through */
 .chevron-arrow-left:hover,
 .chevron-arrow-right:hover {
   border-right: 2px solid rgb(56, 54, 54);

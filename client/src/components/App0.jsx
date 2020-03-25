@@ -4,7 +4,7 @@ import ImageCarousel from './ImageCarousel.jsx';
 
 
 
-class App extends React.Component {
+class App0 extends React.Component {
   constructor() {
     super();
 
@@ -88,6 +88,6 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default App0;
 
 

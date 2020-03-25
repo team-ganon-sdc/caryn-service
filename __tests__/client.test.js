@@ -1,5 +1,5 @@
 import React from 'react';
-import App from '../client/src/components/App.jsx';
+import App0 from '../client/src/components/App0.jsx';
 import ItemsCarousel from '../client/src/components/ImageCarousel.jsx';
 import Adapter from 'enzyme-adapter-react-16';
 
@@ -14,7 +14,7 @@ describe('Components should exist', () => {
   });
 
   it('Component App should exist', () => {
-    const wrapper = shallow(<App/>);
+    const wrapper = shallow(<App0/>);
     expect(wrapper.exists()).toBe(true);
     // expect(wrapper.find(App).length).toEqual(1);
   });

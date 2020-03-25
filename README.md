@@ -17,7 +17,12 @@
 
 ## Usage
 
-> Some usage instructions
+>   "scripts": {
+    "start": "nodemon server/index.js",
+    "build": "webpack -d --watch",
+    "db:setup": "node database/seed.js",
+    "test": "jest"
+  },
 
 ## Requirements
 
