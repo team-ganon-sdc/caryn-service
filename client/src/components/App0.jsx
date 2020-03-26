@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios';
+import Collapsible from 'react-collapsible';
 import ImageCarousel from './ImageCarousel.jsx';
-
+// import CollapsibleCarousel from './Collapsible.jsx'
 
 
 class App0 extends React.Component {
@@ -11,11 +12,11 @@ class App0 extends React.Component {
     this.state = {
       current: [],
       description: '',
-      features: '',
       lines: '',
-      additionalText1: '',
-      additionalText2: '',
-      additionalText3: '',
+      // features: '',
+      // additionalText1: '',
+      // additionalText2: '',
+      // additionalText3: '',
       readMore: 'READ MORE'
     };
     this.toggleAdditionalText = this.toggleAdditionalText.bind(this);
@@ -42,20 +43,20 @@ class App0 extends React.Component {
   }
 
   toggleAdditionalText(){
-    if(this.state.additionalText1 === ''){
+    if(this.state.readMore === 'READ MORE'){
       this.setState({
-        features: this.state.lines[0],
-        additionalText1: this.state.lines[1],
-         additionalText2: this.state.lines[2],
-         additionalText3: this.state.lines[3],
+        // features: this.state.lines[0],
+        // additionalText1: this.state.lines[1],
+        //  additionalText2: this.state.lines[2],
+        //  additionalText3: this.state.lines[3],
         readMore: 'COLLAPSE'
       })
     } else {
       this.setState({
-        features: '',
-        additionalText1: '',
-        additionalText2: '',
-        additionalText3: '',
+        // features: this.state.lines[0],
+        // additionalText1: this.state.lines[1],
+        //  additionalText2: this.state.lines[2],
+        //  additionalText3: this.state.lines[3],
         readMore: 'READ MORE'
       })
     }
@@ -67,14 +68,34 @@ class App0 extends React.Component {
       <div className="carouselContents">
       <ImageCarousel id={this.props.id}/>
       <div className="container-carousel-service">
-      <p className="description-text">{this.state.description} </p>
-      <p className="description-text" id="feature">{this.state.features}</p>
-      <p className="description-text" id="addText1">{this.state.additionalText1}</p>
-      <p className="description-text" id="addText2">{this.state.additionalText2}</p>
-      <p className="description-text" id="addText3">{this.state.additionalText3}</p>
-      <p id="readmore" style={{
-        color: 'green'
-      }} onClick={this.toggleAdditionalText}><strong>{this.state.readMore}</strong></p>
+      <p className="description-text" style={{marginTop: '5px'}}>{this.state.description} </p>
+
+      <Collapsible  id="readmore" className="comet-popover--top-left-aligned" trigger=<strong style={{
+        display: 'grid',
+        gridArea: 'readMore',
+        gridTemplate: 'feature text1 text2 text3 readmore',
+        color: 'green',
+        justifyContent: 'center',
+        alignText: 'center',
+        fontfamily: 'Arial'
+      }}>{this.state.readMore}</strong> onOpen={this.toggleAdditionalText} onClose={this.toggleAdditionalText}>
+      <p className="description-text" id="feature" style={{
+        display: 'grid',
+        gridArea: 'feature'
+      }}>{this.state.lines[0]}</p>
+      <p className="description-text" id="text1" style={{
+        display: 'grid',
+        gridArea: 'text1'
+      }}>{this.state.lines[1]}</p>
+      <p className="description-text" id="addText2" style={{
+        display: 'grid',
+        gridArea: 'text2'
+      }}>{this.state.lines[2]}</p>
+      <p className="description-text" id="addText3" style={{
+        display: 'grid',
+        gridArea: 'text3'
+      }}>{this.state.lines[3]}</p>
+      </Collapsible>
       </div>
 
 

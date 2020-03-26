@@ -25,6 +25,7 @@
     "mongodb": "^3.5.5",
     "mongoose": "^5.9.4",
     "node": "^13.10.1",
+    "react-collapsible": "^2.7.0",
     "react-dom": "^16.13.0",
     "react-items-carousel": "^2.8.0",
     "request": "^2.88.2",

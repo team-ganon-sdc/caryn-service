@@ -63,7 +63,7 @@ export default class ImageCarousel extends React.Component {
     disableSwipe={false}
     alwaysShowChevrons={false}
     numberOfCards={3}
-    slidesToScroll={3.5}
+    slidesToScroll={1}
     outsideChevron={true}
     showSlither={true}
     firstAndLastGutter={false}
