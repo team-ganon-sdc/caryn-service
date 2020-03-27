@@ -12,8 +12,9 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.use(express.static(__dirname + '/../client/dist'));
+// 'http://ec2-52-53-128-255.us-west-1.compute.amazonaws.com:80'
 
+app.use(express.static(__dirname + '/../client/dist'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
