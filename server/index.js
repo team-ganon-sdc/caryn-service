@@ -52,7 +52,6 @@ app.put('/carousels/:id', (req, res) => {
     app_description: description,
     additional_text: additionalText
   }
-  console.log(req.params.id)
   Carousels.findOneAndUpdate({id: req.params.id}, update, (err, results) => {
     if (err) {
       return console.log('error updating to db: ', err)
