@@ -28,6 +28,48 @@ app.get('/carousels/:id', (req, res) => {
   })
 })
 
+app.post('/carousels', function(req, res) {
+  let newCarousel = new Carousels({
+    id: req.body.id,
+    images: req.body.images,
+    app_description: req.body.description,
+    additional_text: req.body.additionalText
+  })
+
+  newCarousel.save((err, result) => {
+    if (err) {
+      return console.log(err)
+    } else {
+      res.send(result)
+    }
+  })
+})
+
+app.put('/carousels/:id', (req, res) => {
+  let description = req.body.description;
+  let additionalText = req.body.additionalText;
+  let update = {
+    app_description: description,
+    additional_text: additionalText
+  }
+  console.log(req.params.id)
+  Carousels.findOneAndUpdate({id: req.params.id}, update, (err, results) => {
+    if (err) {
+      return console.log('error updating to db: ', err)
+    }
+    res.send(results);
+  })
+})
+
+app.delete('/carousels/:id', (req, res) => {
+  Carousels.findOneAndDelete({id: req.params.id}, (err, result) => {
+    if (err) {
+      return console.log('error deleting from db: ', err)
+    } else {
+      res.send(result)
+    }
+  })
+})
 
 
 app.listen(PORT, () => {
