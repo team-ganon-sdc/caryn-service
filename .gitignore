@@ -9,4 +9,6 @@ node_modules/
 #Compilations
 bundle.js
 
+#10Mdata
+postgres/preview.csv
 
