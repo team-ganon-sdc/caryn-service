@@ -1,14 +1,16 @@
 const { Pool, Client } = require('pg');
 
 const pool = new Pool({
-  user: 'root',
-  host: 'localhost',
-  database: 'apppreview',
-  password: 'root',
+  user: 'caryn',
+  host: 'localhost'
 })
 
-pool.connect();
-module.exports = pool;
+pool.query("CREATE TABLE apppreview (id INT, description VARCHAR(8000), additionalText VARCHAR(8000), images VARCHAR(8000))", (err, res) => {
+  console.log(err, res)
+  pool.end()
+})
+
+
 
 // pool.query('SELECT NOW()', (err, res) => {
 //   console.log(err, res)

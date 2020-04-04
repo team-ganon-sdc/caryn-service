@@ -10,5 +10,5 @@ node_modules/
 bundle.js
 
 #10Mdata
-postgres/preview.csv
+preview.csv
 
