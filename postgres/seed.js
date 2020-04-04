@@ -12,8 +12,8 @@ function writeTenMillionAppPreviews(appPreview, encoding, callback) {
     do {
       i -= 1;
       id += 1;
-      let description = faker.lorem.paragraphs();
-      let additionalText = 'FEATURES\n★ plz send new non silly brain plz! things are way too silly!\n★ steady havin what I believe a psychiatrist would call a "mental breakdance"\n★ when it comes to my mental brain, im just lookin 4 the right crank to pull (keep pulling the wrong cranks, turns out)\n★ not everyday that u get so hilarious brained that u invent the solutions machine';
+      let description = faker.lorem.paragraph();
+      let additionalText = 'FEATURES ★ plz send new non silly brain plz! things are way too silly! ★ steady havin what I believe a psychiatrist would call a "mental breakdance" ★ when it comes to my mental brain, im just lookin 4 the right crank to pull (keep pulling the wrong cranks, turns out) ★ not everyday that u get so hilarious brained that u invent the solutions machine';
       let images = ['https://i.picsum.photos/id/737/180/300.jpg', 'https://i.picsum.photos/id/447/300/300.jpg', 'https://i.picsum.photos/id/446/180/300.jpg',
       'https://i.picsum.photos/id/757/180/300.jpg',
       'https://i.picsum.photos/id/767/300/300.jpg',
