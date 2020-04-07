@@ -16,7 +16,7 @@ const pool = new Pool({
   port: 5432
 })
 
-pool.connect((err, result) => {
+pool.connect((err) => {
   if (err) {
     console.error(err);
   }
