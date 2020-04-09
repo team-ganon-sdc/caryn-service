@@ -29,7 +29,7 @@ export default class ImageCarousel extends React.Component {
   UNSAFE_componentWillMount() {
     axios.get(`http://localhost:3003/carousels/${this.props.id}`).then((data) => {
       this.setState({
-        items: data.data[0].images,
+        items: data.data[0].images.split(','),
         activeItemIndex: 0
       })
       }).catch(err => console.log(err));

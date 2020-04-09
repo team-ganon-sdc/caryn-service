@@ -24,13 +24,14 @@ class App0 extends React.Component {
   }
 
   componentDidMount = () => {
-   axios.get(`http://localhost:3003/carousels/${this.props.id}`)
+   let endPoint = window.location.href.split('=')[1];
+   axios.get(`http://localhost:3003/carousels/${endPoint}`)
    .then((data) => {
     this.setState({
       current: data.data[0],
-      description: data.data[0].app_description,
+      description: data.data[0].description,
       features: '',
-      lines: (data.data[0].additional_text).split('\n'),
+      lines: (data.data[0].additionaltext).split(9733),
       additionalText1: '',
       additionalText2: '',
       additionalText3: '',
