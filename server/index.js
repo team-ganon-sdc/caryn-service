@@ -65,7 +65,6 @@ app.post('/carousels', (req, res) => {
     }
   })
 
-})
 
 // app.put('/carousels/:id', (req, res) => {
 //   let description = req.body.description;
