@@ -1,0 +1,23 @@
+config:
+  target: "http://localhost:3003"
+  phases:
+    - duration: 5
+      arrivalRate: 1000
+  # variables:
+  #   id:
+  #     - "1"
+  #     - "1000"
+  #     - "100000"
+  #     - "10000000"
+  processor: "./randomData.js"
+scenarios:
+  - flow:
+    # - get:
+    #     url: "/?={{ id }}"
+    - function: "generateRandomData"
+    - post:
+        url: "/carousels"
+        json:
+          description: "{{ description }}"
+          additionaltext: "{{ additionaltext }}"
+          images: "{{ images }}"

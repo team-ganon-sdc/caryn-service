@@ -1,3 +1,4 @@
+require('newrelic');
 const express = require('express');
 const path = require('path');
 // const Carousels = require('../database/model.js');
@@ -46,22 +47,25 @@ app.get('/carousels/:id', (req, res) => {
   })
 })
 
-// app.post('/carousels', function(req, res) {
-//   let newCarousel = new Carousels({
-//     id: req.body.id,
-//     images: req.body.images,
-//     app_description: req.body.description,
-//     additional_text: req.body.additionalText
-//   })
+app.post('/carousels', (req, res) => {
+  var images = req.body.images;
+  var description = req.body.description;
+  var additionaltext = req.body.additionaltext;
+  var id;
 
-//   newCarousel.save((err, result) => {
-//     if (err) {
-//       return console.log(err)
-//     } else {
-//       res.send(result)
-//     }
-//   })
-// })
+
+  let query = `INSERT INTO apppreview (description, additionaltext, images) VALUES ($1, $2, $3)`
+  let values = [description, additionaltext, images];
+  pool.query(query, values, (err, result) => {
+    if (err) {
+      console.error(err)
+    } else {
+      // console.log('successfully inserted new data to the database')
+      res.json('successfully inserted new data to the database');
+    }
+  })
+
+})
 
 // app.put('/carousels/:id', (req, res) => {
 //   let description = req.body.description;
@@ -95,6 +99,8 @@ app.listen(PORT, () => {
 });
 
 module.exports = app
+
+
 
 
 

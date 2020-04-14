@@ -19,22 +19,26 @@ export default class ImageCarousel extends React.Component {
   }
 
 
-// componentDidMount () {
-//   // var appId = 2
-//   // axios.get(`http://localhost:3003/carousels/99`).then((data) => {
-//   //   const results = data.data[0].images;
-//   //   }).catch(err => console.log(err));
-// }
-
-  UNSAFE_componentWillMount() {
-    axios.get(`http://localhost:3003/carousels/${this.props.id}`).then((data) => {
+componentDidMount () {
+  let endPoint = window.location.href.split('=')[1];
+  axios.get(`http://localhost:3003/carousels/${endPoint}`).then((data) => {
       this.setState({
         items: data.data[0].images.split(','),
         activeItemIndex: 0
       })
       }).catch(err => console.log(err));
-
 }
+
+//   UNSAFE_componentWillMount() {
+//     let endPoint = window.location.href.split('=')[1];
+//     axios.get(`http://localhost:3003/carousels/${endPoint}`).then((data) => {
+//       this.setState({
+//         items: data.data[0].images.split(','),
+//         activeItemIndex: 0
+//       })
+//       }).catch(err => console.log(err));
+
+// }
 
 
   changeActiveItem = (activeItemIndex) => this.setState({ activeItemIndex });
@@ -78,7 +82,7 @@ export default class ImageCarousel extends React.Component {
     style={{
       height: 300,
       width: 180,
-      background: `url(${this.state.items[i]})` || `url(https://i.picsum.photos/id/63${Math.floor(Math.random() * 9)}/180/300.jpg)`
+      background: `url(${this.state.items[i]})`
     }}
   />
 )}
