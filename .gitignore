@@ -2,6 +2,7 @@
 npm
 npm-debug.log
 node_modules/
+newrelic_agent.log
 
 ## MAC files ##
 .DS_Store

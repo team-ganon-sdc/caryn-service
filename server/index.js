@@ -64,6 +64,7 @@ app.post('/carousels', (req, res) => {
       res.json('successfully inserted new data to the database');
     }
   })
+})
 
 
 // app.put('/carousels/:id', (req, res) => {
