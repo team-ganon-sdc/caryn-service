@@ -10,13 +10,14 @@ class App0 extends React.Component {
     super(props);
 
     this.state = {
+      id: 0,
       current: [],
       description: '',
       lines: '',
-      // features: '',
-      // additionalText1: '',
-      // additionalText2: '',
-      // additionalText3: '',
+      features: '',
+      additionalText1: '',
+      additionalText2: '',
+      additionalText3: '',
       readMore: 'READ MORE'
     };
     this.toggleAdditionalText = this.toggleAdditionalText.bind(this);
@@ -24,13 +25,15 @@ class App0 extends React.Component {
   }
 
   componentDidMount = () => {
-   axios.get(`http://localhost:3003/carousels/${this.props.id}`)
+   let endPoint = window.location.href.split('=')[1];
+   axios.get(`http://localhost:3003/carousels/${endPoint}`)
    .then((data) => {
     this.setState({
+      id: endPoint,
       current: data.data[0],
-      description: data.data[0].app_description,
+      description: data.data[0].description,
       features: '',
-      lines: (data.data[0].additional_text).split('\n'),
+      lines: (data.data[0].additionaltext).split('★'),
       additionalText1: '',
       additionalText2: '',
       additionalText3: '',
@@ -47,18 +50,18 @@ class App0 extends React.Component {
     if(this.state.readMore === 'READ MORE'){
       this.setState({
         features: this.state.lines[0],
-        additionalText1: this.state.lines[1],
-         additionalText2: this.state.lines[2],
-         additionalText3: this.state.lines[3],
-         additionalText4: this.state.lines[4],
+        additionalText1: '★' + this.state.lines[1],
+         additionalText2: '★' + this.state.lines[2],
+         additionalText3: '★' + this.state.lines[3],
+         additionalText4: '★' + this.state.lines[4],
         readMore: 'COLLAPSE'
       })
     } else {
       this.setState({
-        // features: this.state.lines[0],
-        // additionalText1: this.state.lines[1],
-        //  additionalText2: this.state.lines[2],
-        //  additionalText3: this.state.lines[3],
+        features: this.state.lines[0],
+        additionalText1: '★' + this.state.lines[1],
+        additionalText2: '★' + this.state.lines[2],
+        additionalText3: '★' + this.state.lines[3],
         readMore: 'READ MORE'
       })
     }
@@ -68,7 +71,7 @@ class App0 extends React.Component {
   render() {
     return (
       <div className="carouselContents">
-      <ImageCarousel id={this.props.id}/>
+      <ImageCarousel />
       <div className="container-carousel-service">
       <p className="description-text" style={{marginTop: '5px'}}>{this.state.description} </p>
 
@@ -107,9 +110,6 @@ class App0 extends React.Component {
       }}>{this.state.lines[4]}</p>
       </Collapsible>
       </div>
-
-
-
       </div>
     );
   }

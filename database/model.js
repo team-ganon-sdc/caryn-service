@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const Pool = require('pg').Pool;
 const db = require('./index.js');
 
 const carouselSchema = new mongoose.Schema({

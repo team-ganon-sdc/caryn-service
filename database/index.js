@@ -6,4 +6,4 @@ mongoose.connect('mongodb://localhost/googleplay', {
 });
 const db = mongoose.connection;
 
- module.exports = db;
+module.exports = db;
