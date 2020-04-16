@@ -21,7 +21,7 @@ export default class ImageCarousel extends React.Component {
 
 componentDidMount () {
   let endPoint = window.location.href.split('=')[1];
-  axios.get(`http://localhost:3003/carousels/${endPoint}`).then((data) => {
+  axios.get(`http://52.53.152.134:3003/carousels/${endPoint}`).then((data) => {
       this.setState({
         items: data.data[0].images.split(','),
         activeItemIndex: 0
