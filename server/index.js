@@ -37,6 +37,9 @@ app.use(express.static(__dirname + '/../client/dist'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.get('/loaderio-9d64cff197a7dde87eb5b682e90b561b.txt', (req, res) => {
+  res.sendFile(path.join(__dirname, '../loaderio-9d64cff197a7dde87eb5b682e90b561b.txt'));
+});
 
 app.get('/carousels/:id', (req, res) => {
   let query = `select * from apppreview where id=${req.params.id};`
