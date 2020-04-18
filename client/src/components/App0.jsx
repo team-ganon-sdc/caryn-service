@@ -26,7 +26,7 @@ class App0 extends React.Component {
 
   componentDidMount = () => {
    let endPoint = window.location.href.split('=')[1];
-   axios.get(`http://13.52.243.17:3003/carousels/${endPoint}`)
+   axios.get(`http://54.67.43.191:3003/carousels/${endPoint}`)
    .then((data) => {
     this.setState({
       id: endPoint,
